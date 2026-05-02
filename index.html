@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jihye (Jessica) Kim — Researcher</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --font-serif: 'Source Serif 4', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --bg: #FAFAF8; --bg-alt: #F2F0EC;
+  --text: #1A1A1A; --text-secondary: #555550; --text-tertiary: #888883;
+  --accent: #2B4C7E; --accent-light: #3D6DB5; --accent-bg: #EDF2F8;
+  --border: #E0DED8; --tag-bg: #EEEDEA; --tag-text: #555550;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04); --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+  --track-ci: #2B4C7E; --track-ci-bg: #EDF2F8; --track-ci-border: #C5D5EA;
+  --track-nlp: #6B4C8E; --track-nlp-bg: #F0EBF5; --track-nlp-border: #D4C5E6;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body { font-family: var(--font-sans); color: var(--text); background: var(--bg); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+nav { position: fixed; top: 0; width: 100%; background: rgba(250,250,248,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 100; transition: box-shadow 0.3s; }
+nav.scrolled { box-shadow: var(--shadow-md); }
+.nav-inner { max-width: 900px; margin: 0 auto; padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+.nav-name { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; color: var(--text); text-decoration: none; }
+.nav-links { display: flex; gap: 8px; }
+.nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); text-decoration: none; padding: 6px 12px; border-radius: 6px; transition: all 0.2s; }
+.nav-links a:hover { color: var(--accent); background: var(--accent-bg); }
+.mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.mobile-toggle span { display: block; width: 20px; height: 2px; background: var(--text); margin: 4px 0; transition: 0.3s; }
+
+main { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+.hero { padding: 120px 0 60px; display: flex; gap: 48px; align-items: flex-start; }
+.hero-photo { width: 160px; height: 160px; border-radius: 50%; background: var(--bg-alt); border: 3px solid var(--border); flex-shrink: 0; object-fit: cover; }
+.hero-text { flex: 1; }
+.hero-text h1 { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 8px; }
+.hero-affiliation { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.5; }
+.hero-bio { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; }
+.hero-tracks { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.hero-track-badge { font-size: 0.78rem; font-weight: 600; padding: 5px 14px; border-radius: 20px; letter-spacing: 0.02em; }
+.hero-track-badge.ci { background: var(--track-ci-bg); color: var(--track-ci); border: 1px solid var(--track-ci-border); }
+.hero-track-badge.nlp { background: var(--track-nlp-bg); color: var(--track-nlp); border: 1px solid var(--track-nlp-border); }
+.hero-links { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-links a { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 500; color: var(--accent); text-decoration: none; padding: 6px 14px; border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s; }
+.hero-links a:hover { background: var(--accent-bg); border-color: var(--accent); }
+
+section { padding: 48px 0; border-top: 1px solid var(--border); }
+.section-title { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 8px; }
+.section-subtitle { font-size: 0.9rem; color: var(--text-tertiary); margin-bottom: 32px; }
+
+.news-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.news-item { display: flex; gap: 16px; align-items: baseline; font-size: 0.92rem; }
+.news-date { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-tertiary); flex-shrink: 0; min-width: 90px; }
+.news-badge { display: inline-block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 2px 8px; border-radius: 4px; margin-right: 6px; }
+.news-badge.ci { background: var(--track-ci-bg); color: var(--track-ci); }
+.news-badge.nlp { background: var(--track-nlp-bg); color: var(--track-nlp); }
+
+.press-list { display: flex; flex-direction: column; gap: 16px; }
+.press-card { display: flex; gap: 20px; align-items: flex-start; padding: 20px; border: 1px solid var(--border); border-radius: 8px; background: #fff; text-decoration: none; color: inherit; transition: all 0.2s; }
+.press-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+.press-logo { flex-shrink: 0; width: 48px; height: 48px; border-radius: 8px; background: var(--bg-alt); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; color: var(--text-tertiary); text-align: center; line-height: 1.2; }
+.press-content { flex: 1; min-width: 0; }
+.press-source { font-size: 0.78rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+.press-card h3 { font-family: var(--font-serif); font-size: 0.95rem; font-weight: 600; line-height: 1.4; margin-bottom: 4px; color: var(--text); }
+.press-card p { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.6; }
+.press-arrow { flex-shrink: 0; color: var(--text-tertiary); font-size: 1.1rem; margin-top: 2px; transition: transform 0.2s; }
+.press-card:hover .press-arrow { transform: translateX(3px); color: var(--accent); }
+
+.research-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.research-card { padding: 28px 24px; border-radius: 10px; border: 1px solid var(--border); background: #fff; transition: box-shadow 0.2s; }
+.research-card:hover { box-shadow: var(--shadow-md); }
+.research-card.ci { border-top: 3px solid var(--track-ci); }
+.research-card.nlp { border-top: 3px solid var(--track-nlp); }
+.research-card-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; display: inline-block; padding: 3px 10px; border-radius: 4px; }
+.research-card.ci .research-card-label { background: var(--track-ci-bg); color: var(--track-ci); }
+.research-card.nlp .research-card-label { background: var(--track-nlp-bg); color: var(--track-nlp); }
+.research-card h3 { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 600; margin-bottom: 10px; color: var(--text); line-height: 1.4; }
+.research-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 14px; }
+.venue-highlight { font-size: 0.8rem; font-weight: 500; color: var(--text-tertiary); margin-bottom: 14px; padding: 8px 12px; background: var(--bg); border-radius: 6px; line-height: 1.5; }
+.venue-highlight strong { color: var(--text); }
+.research-bridge { text-align: center; margin-top: 28px; padding: 20px; border: 1px dashed var(--border); border-radius: 8px; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
+.research-bridge em { color: var(--text); font-style: normal; font-weight: 600; }
+.research-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
+.tag { font-size: 0.73rem; font-weight: 500; padding: 3px 9px; border-radius: 4px; background: var(--tag-bg); color: var(--tag-text); }
+
+.pub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+.pub-column { display: flex; flex-direction: column; }
+.pub-column-header { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 600; padding: 10px 0; margin-bottom: 20px; border-bottom: 2px solid var(--border); }
+.pub-column-header.ci { color: var(--track-ci); border-bottom-color: var(--track-ci); }
+.pub-column-header.nlp { color: var(--track-nlp); border-bottom-color: var(--track-nlp); }
+.pub-item { margin-bottom: 28px; padding-left: 16px; border-left: 2px solid var(--border); transition: border-color 0.2s; }
+.pub-item:hover { border-left-color: var(--accent); }
+.pub-item.ci:hover { border-left-color: var(--track-ci); }
+.pub-item.nlp:hover { border-left-color: var(--track-nlp); }
+.pub-item.hidden { display: none; }
+.pub-track-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; position: relative; top: -1px; }
+.pub-track-dot.ci { background: var(--track-ci); }
+.pub-track-dot.nlp { background: var(--track-nlp); }
+.pub-title { font-family: var(--font-serif); font-size: 1rem; font-weight: 600; line-height: 1.5; margin-bottom: 4px; }
+.pub-venue { font-size: 0.85rem; color: var(--text-secondary); font-weight: 500; margin-bottom: 4px; }
+.pub-authors { font-size: 0.84rem; color: var(--text-tertiary); margin-bottom: 6px; }
+.pub-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+.pub-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.pub-link { font-size: 0.75rem; font-weight: 500; font-family: var(--font-mono); color: var(--accent); text-decoration: none; padding: 3px 10px; border: 1px solid var(--border); border-radius: 4px; transition: all 0.2s; }
+.pub-link:hover { background: var(--accent-bg); border-color: var(--accent); }
+.pub-status { display: inline-block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 4px; margin-left: 8px; }
+.pub-status.published { background: #E8F5E9; color: #2E7D32; }
+.pub-status.accepted { background: #E3F2FD; color: #1565C0; }
+.pub-status.review { background: #FFF8E1; color: #F57F17; }
+.pub-status.prep { background: var(--tag-bg); color: var(--tag-text); }
+
+.blog-list { display: flex; flex-direction: column; gap: 20px; }
+.blog-card { padding: 24px; border: 1px solid var(--border); border-radius: 8px; background: #fff; transition: all 0.2s; text-decoration: none; color: inherit; display: block; }
+.blog-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+.blog-card-date { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-tertiary); margin-bottom: 6px; }
+.blog-card h3 { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; line-height: 1.4; }
+.blog-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; }
+.blog-card-tags { display: flex; gap: 6px; margin-top: 10px; }
+.blog-placeholder { text-align: center; padding: 48px 24px; border: 1px dashed var(--border); border-radius: 8px; color: var(--text-tertiary); font-size: 0.9rem; }
+
+.cv-section { margin-bottom: 32px; }
+.cv-section h3 { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; margin-bottom: 16px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+.cv-entry { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; gap: 16px; }
+.cv-entry-main { flex: 1; }
+.cv-entry-title { font-weight: 600; font-size: 0.92rem; }
+.cv-entry-detail { font-size: 0.85rem; color: var(--text-secondary); }
+.cv-entry-date { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-tertiary); flex-shrink: 0; text-align: right; }
+.cv-download { display: inline-flex; align-items: center; gap: 8px; font-size: 0.88rem; font-weight: 500; color: var(--accent); text-decoration: none; padding: 10px 20px; border: 1px solid var(--accent); border-radius: 6px; transition: all 0.2s; margin-top: 16px; }
+.cv-download:hover { background: var(--accent); color: #fff; }
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.skills-label { font-size: 0.82rem; font-weight: 600; margin-bottom: 8px; }
+.skills-label.ci-label { color: var(--track-ci); }
+.skills-label.nlp-label { color: var(--track-nlp); }
+.skills-label.prog-label { color: var(--text-secondary); }
+
+footer { margin-top: 48px; padding: 32px 0; border-top: 1px solid var(--border); text-align: center; }
+footer p { font-size: 0.8rem; color: var(--text-tertiary); }
+
+.fade-in { opacity: 0; transform: translateY(16px); animation: fadeUp 0.5s ease forwards; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+.delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; } .delay-3 { animation-delay: 0.3s; }
+
+@media (max-width: 700px) {
+  .hero { flex-direction: column; align-items: center; text-align: center; gap: 24px; padding: 100px 0 40px; }
+  .hero-photo { width: 120px; height: 120px; }
+  .hero-links, .hero-tracks { justify-content: center; }
+  .hero-text h1 { font-size: 1.7rem; }
+  .nav-links { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background: rgba(250,250,248,0.98); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 16px 24px; gap: 4px; }
+  .mobile-toggle { display: block; }
+  .research-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .cv-entry { flex-direction: column; gap: 2px; }
+  .cv-entry-date { text-align: left; }
+  .news-item { flex-direction: column; gap: 4px; }
+  .pub-grid { grid-template-columns: 1fr; }
+  .pub-tabs { overflow-x: auto; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-name">Jihye Kim</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#news">News</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#cv">CV</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main>
+
+<section class="hero" id="about">
+  <img class="hero-photo fade-in" src="profile.jpg" alt="Jihye Kim">
+  <div class="hero-text">
+    <h1 class="fade-in delay-1">Jihye (Jessica) Kim</h1>
+    <div class="hero-affiliation fade-in delay-2">Ph.D., KAIST · M.S. Student, UC Santa Cruz</div>
+    <div class="hero-tracks fade-in delay-2">
+      <span class="hero-track-badge ci">Causal Inference &amp; Econometrics (IS)</span>
+      <span class="hero-track-badge nlp">NLP &amp; LLM Research</span>
+    </div>
+    <p class="hero-bio fade-in delay-2">
+      I am a researcher applying econometric and causal inference methods to study LLM safety, trustworthiness, and alignment.
+    </p>
+    <p class="hero-bio fade-in delay-2">
+      I earned my Ph.D. in Information Systems at KAIST (Dept. of Management Engineering), where I studied the societal and market impacts
+      of technology-enabled interventions using
+      large-scale observational and experimental data (published in <em>Information Systems Research</em>, UTD24/FT50).
+    </p>
+    <p class="hero-bio fade-in delay-2">
+      Now, as an M.S. student in NLP at the University of California, Santa Cruz (Dept. of Computer Science and Engineering), I study the deceptive behaviors of LLM agents
+      and their vulnerability to external manipulation—designing interventions to mitigate these risks.
+    </p>
+    <p class="hero-bio fade-in delay-2">
+      Before academia, I spent 3+ years as a Senior Consultant at Deloitte Consulting,
+      leading digital transformation and performance management projects across multiple industries.
+    </p>
+    <div class="hero-links fade-in delay-3">
+      <a href="mailto:jihye.jkim@gmail.com">✉ Email</a>
+      <a href="https://www.linkedin.com/in/jihyekimphd/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/jessica-jh" target="_blank">GitHub</a>
+      <a href="https://bit.ly/4eWGqSm" target="_blank" download>⬇ CV</a>
+    </div>
+  </div>
+</section>
+
+<section id="news">
+  <h2 class="section-title">News</h2>
+  <p class="section-subtitle">Recent updates</p>
+  <ul class="news-list">
+    <li class="news-item">
+      <span class="news-date">Apr 2026</span>
+      <span><span class="news-badge nlp">NLP</span> Single-authored paper on LLM negotiation agents accepted at <strong>ACL 2026 TrustNLP Workshop</strong>.</span>
+    </li>
+    <li class="news-item">
+      <span class="news-date">2026</span>
+      <span><span class="news-badge ci">Causal</span> First-author paper published in <strong>Information Systems Research</strong> (UTD24/FT50).</span>
+    </li>
+    <li class="news-item">
+      <span class="news-date">2026</span>
+      <span><span class="news-badge nlp">NLP</span> SemEval 2026 Task A — Multi-Turn RAG Retrieval accepted.</span>
+    </li>
+  </ul>
+</section>
+
+<section id="research">
+  <h2 class="section-title">Research</h2>
+  <p class="section-subtitle"></p>
+
+  <div class="research-grid">
+    <div class="research-card ci">
+      <div class="research-card-label">Track I</div>
+      <h3>Causal Inference &amp; Econometrics (IS)</h3>
+      <div class="venue-highlight">
+        Published: <strong>Information Systems Research</strong> (UTD24/FT50)<br>
+        In Revision: <strong>MSOM</strong> (UTD24/FT50) · Resubmission: <strong>JMIS</strong><br>
+        Accepted: <strong>CIST</strong> '22, '23 · <strong>WISE</strong> '24 · <strong>HICSS</strong> '24 · <strong>Marketing Science DEI</strong> '23 · <strong>KrAIS</strong> '23
+      </div>
+      <p>
+        I design causal identification strategies to measure the real-world effects of technology-enabled interventions
+        on economic behavior—from on-demand wage access changing financial habits
+        of low-wage workers, to self-order kiosks reshaping consumer demand patterns.
+      </p>
+      <div class="research-tags">
+        <span class="tag">Staggered DID</span>
+        <span class="tag">PSM / IPTW</span>
+        <span class="tag">IV</span>
+        <span class="tag">Double ML</span>
+        <span class="tag">Causal Forest</span>
+        <span class="tag">A/B Testing</span>
+      </div>
+    </div>
+
+    <div class="research-card nlp">
+      <div class="research-card-label">Track II</div>
+      <h3>NLP &amp; LLM Research</h3>
+      <div class="venue-highlight">
+        Accepted: <strong>ACL 2026 TrustNLP</strong> · <strong>SemEval 2026</strong><br>
+        In Progress: Verbal-probabilistic alignment in LLMs
+      </div>
+      <p>
+        I study how large language models behave in high-stakes interactive settings—negotiation,
+        persuasion, decision-making—and how structural interventions can improve their reliability.
+        My work uncovered "Deceptive Bypass" in LLM agents and proposed observer–planner–actor
+        architectures to mitigate it.
+      </p>
+      <div class="research-tags">
+        <span class="tag">LLM Agents</span>
+        <span class="tag">Trustworthy AI</span>
+        <span class="tag">Prompt Engineering</span>
+        <span class="tag">RAG</span>
+        <span class="tag">Fine-tuning</span>
+        <span class="tag">Alignment</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section id="publications">
+  <h2 class="section-title">Publications</h2>
+  <p class="section-subtitle">Selected papers (* = first author)</p>
+
+  <div class="pub-grid">
+    <!-- LEFT: Causal Inference & Econometrics -->
+    <div class="pub-column">
+      <div class="pub-column-header ci">Causal Inference &amp; Econometrics (IS)</div>
+
+      <div class="pub-item ci">
+        <div class="pub-title">Working Daily, Paid Monthly? Effects of On-Demand Earned Wage Access on the Financial Well-Being of Low-Wage Workers <span class="pub-status published">Published</span></div>
+        <div class="pub-venue">Information Systems Research (ISR) · UTD24/FT50 · 2026</div>
+        <div class="pub-authors"><strong>Jihye Kim*</strong>, Seokchae Yoon, Sunghun Chung, Wonseok Oh</div>
+        <div class="pub-desc">Estimated causal effects of on-demand wage access on 4,000 low-wage workers using staggered DID, PSM, IV, and Double ML; quantified +12.9% monitoring duration and +3.7% saving frequency.</div>
+        <div class="pub-links">
+          <a class="pub-link" href="https://doi.org/10.1287/isre.2023.0673" target="_blank">Journal</a>
+          <a class="pub-link" href="https://drive.google.com/file/d/1cawIl2U73fh3e3ClXyNtMG5wHY0L1o-K/view?usp=drive_link" target="_blank">Manuscript</a>
+          <a class="pub-link" href="https://www.cfodive.com/news/instant-paychecks-can-boost-low-income-workers-savings-habits-report-find/814220/" target="_blank">Media</a>
+        </div>
+      </div>
+
+      <div class="pub-item ci">
+        <div class="pub-title">Impact of Self-Order Kiosk Adoption on Demand Variety <span class="pub-status review">In Revision</span></div>
+        <div class="pub-venue">Manufacturing &amp; Service Operations Management (MSOM) · UTD24/FT50</div>
+        <div class="pub-authors"><strong>Jihye Kim*</strong>, Seokchae Yoon, Anindya Ghose, Wonseok Oh</div>
+        <div class="pub-desc">Estimated causal effects of kiosk adoption on demand variety using staggered DID and IPTW on 2,000+ stores; identified +13.6% customization increase with asymmetric effects by regional income.</div>
+      </div>
+
+      <div class="pub-item ci">
+        <div class="pub-title">The Economics of In-App Payment Options: Implications for Digital Platform Governance <span class="pub-status review">Resubmission</span></div>
+        <div class="pub-venue">Journal of Management Information Systems (JMIS) · Invited for Resubmission</div>
+        <div class="pub-authors"><strong>Jihye Kim*</strong>, Hyeokkoo Eric Kwon, Wonseok Oh, Kunshin Im</div>
+      </div>
+
+      <div class="pub-item ci">
+        <div class="pub-title">Could Self-Order Kiosks Drive Unequal Sales Variety? <span class="pub-status accepted">Accepted</span></div>
+        <div class="pub-venue">The 35th Workshop on Information Systems and Economics (WISE 2024) · Bangkok, Thailand · Dec 2024</div>
+        <div class="pub-authors"><strong>Jihye Kim*</strong>, Seokchae Yoon</div>
+        <div class="pub-links"><a class="pub-link" href="https://drive.google.com/file/d/132DUcgQ9WhRwKKtXUqO4Uz0UA88s98xV/view?usp=sharing" target="_blank">Slides</a></div>
+      </div>
+
+      <div class="pub-item ci">
+        <div class="pub-title">The Information Billboard: Effects of Popular Search Terms on Search Behaviors and Digital Divide <span class="pub-status accepted">Accepted</span></div>
+        <div class="pub-venue">The 57th Hawaii International Conference on Systems Sciences (HICSS 2024) · Manoa, HI · Jan 2024</div>
+        <div class="pub-authors">Yoonha Park, <strong>Jihye Kim</strong>, Kyumin Lee, Wonseok Oh</div>
+        <div class="pub-links"><a class="pub-link" href="https://scholarspace.manoa.hawaii.edu/server/api/core/bitstreams/2b5238a1-0bed-4fb8-a37b-14da0267ba98/content" target="_blank">Paper</a></div>
+      </div>
+
+      <div class="pub-item ci">
+        <div class="pub-title">Working Daily, Paid Monthly? Effects of On-Demand Earned Wage Access on Financial Well-Being <span class="pub-status accepted">Accepted</span></div>
+        <div class="pub-venue">The 15th Conference on Information Systems and Technology (CIST 2023) · Phoenix, AZ · Oct 2023</div>
+        <div class="pub-authors"><strong>Jihye Kim*</strong>, Seokchae Yoon, Sunghun Chung</div>
+        <div class="pub-links"><a class="pub-link" href="https://drive.google.com/file/d/1btpQQvjxebylYYsN1O2W6h39BNpcK3Ou/view?usp=sharing" target="_blank">Slides</a></div>
+      </div>
+
+      <div class="pub-item ci">
+        <div class="pub-title">When Trends Come and Go: Effects of Trending Keyword Searches on Search Behaviors and Information Inequality <span class="pub-status accepted">Accepted</span></div>
+        <div class="pub-venue">The 15th Conference on Information Systems and Technology (CIST 2023) · Phoenix, AZ · Oct 2023</div>
+        <div class="pub-authors">Yoonha Park, <strong>Jihye Kim</strong>, Wonseok Oh, Kyumin Lee</div>
+      </div>
+
+      <div class="pub-item ci">
+        <div class="pub-title">In-App Payment Regulation and Platform Governance <span class="pub-status accepted">Accepted</span></div>
+        <div class="pub-venue">KrAIS Summer Workshop (KrAIS 2023) · Seoul, Korea · Jul 2023</div>
+        <div class="pub-authors"><strong>Jihye Kim*</strong>, Hyeokkoo Eric Kwon, Wonseok Oh, Kunshin Im</div>
+      </div>
+
+      <div class="pub-item ci">
+        <div class="pub-title">On-Demand Earned Wage Access and Financial Well-Being of Low-Wage Workers <span class="pub-status accepted">Accepted</span></div>
+        <div class="pub-venue">Marketing Science: Diversity, Equity &amp; Inclusion Conference (MSI DEI 2023) · Dallas, TX · Mar 2023</div>
+        <div class="pub-authors"><strong>Jihye Kim*</strong>, Seokchae Yoon, Sunghun Chung</div>
+      </div>
+
+      <div class="pub-item ci">
+        <div class="pub-title">The Economics of In-App Payment Options: Implications for Digital Platform Governance <span class="pub-status accepted">Accepted</span></div>
+        <div class="pub-venue">The 14th Conference on Information Systems and Technology (CIST 2022) · Indianapolis, IN · Oct 2022</div>
+        <div class="pub-authors"><strong>Jihye Kim*</strong>, Hyeokkoo Eric Kwon, Wonseok Oh, Kunshin Im</div>
+        <div class="pub-links"><a class="pub-link" href="https://drive.google.com/file/d/1Z9gWQhSY7RxFynaXp5gmJ5c5EJsEOGWS/view?usp=sharing" target="_blank">Slides</a></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: NLP & LLM -->
+    <div class="pub-column">
+      <div class="pub-column-header nlp">NLP &amp; LLM</div>
+
+      <div class="pub-item nlp">
+        <div class="pub-title">Coercion Suppression &amp; Preference Hallucinations in LLM Negotiation Agents <span class="pub-status accepted">Accepted</span></div>
+        <div class="pub-venue">6th TrustNLP at ACL 2026</div>
+        <div class="pub-authors"><strong>Jihye Kim*</strong> (Single Author)</div>
+        <div class="pub-desc">Designed Observer–Planner–Actor architecture for negotiation agents; outperformed baselines with +39.8% utility, +46% acceptance rate, and −23pp hallucination rate. Identified "Deceptive Bypass" phenomenon.</div>
+        <div class="pub-links">
+          <a class="pub-link" href="https://github.com/jessica-jh/socially-aligned-strategic-agents" target="_blank">GitHub</a>
+          <a class="pub-link" href="https://drive.google.com/file/d/13n7EENBrnX7TRKqHZ-QMKJO36PRtuPvI/view?usp=sharing" target="_blank">Manuscript</a>
+        </div>
+      </div>
+
+      <div class="pub-item nlp">
+        <div class="pub-title">Multi-Turn RAG Retrieval for Conversational AI <span class="pub-status accepted">Accepted</span></div>
+        <div class="pub-venue">SemEval 2026 Task A · University of California, Santa Cruz</div>
+        <div class="pub-authors">Pratibha Revanka, <strong>Jihye Kim</strong>, Umit Azirakhmet</div>
+        <div class="pub-desc">Hybrid dense-sparse retrieval pipeline (BGE-M3, BM25) with conversational query rewriting; 44.3% average improvement in Recall@10 over zero-shot baselines.</div>
+      </div>
+
+      <div class="pub-item nlp">
+        <div class="pub-title">Bridging the Confidence Gap: Structural Prompting for Verbal-Probabilistic Alignment <span class="pub-status prep">In Prep</span></div>
+        <div class="pub-venue">University of California, Santa Cruz · Preparation for conference submission</div>
+        <div class="pub-authors"><strong>Jihye Kim*</strong>, Umit Azirakhmet, Sophia Yang</div>
+        <div class="pub-desc">Investigating the disconnect between LLMs' internal probabilistic uncertainty and verbalized confidence; evaluating structural prompt interventions for epistemic honesty.</div>
+        <div class="pub-links"><a class="pub-link" href="https://github.com/Umit-Azirakhmet/llm-trust-gap" target="_blank">GitHub</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="press">
+  <h2 class="section-title">Press Coverage</h2>
+  <p class="section-subtitle">Selected media on my research</p>
+  <div class="press-list">
+    <a class="press-card" href="https://www.hrdive.com/news/instant-paychecks-can-boost-low-income-workers-savings-habits/814325/" target="_blank">
+      <div class="press-logo">HR<br>Dive</div>
+      <div class="press-content">
+        <div class="press-source">HR Dive</div>
+        <h3>Instant pay can boost low-income workers' savings habits, report finds</h3>
+        <p>Coverage of ISR paper on how on-demand wage access improves financial engagement among low-wage workers.</p>
+      </div>
+      <span class="press-arrow">→</span>
+    </a>
+    <a class="press-card" href="https://www.informs.org/News-Room/INFORMS-Releases/News-Releases/Study-Finds-That-On-Demand-Wage-Access-Boosts-Savings-and-Financial-Engagement-for-Low-Wage-Workers" target="_blank">
+      <div class="press-logo">IN<br>FORMS</div>
+      <div class="press-content">
+        <div class="press-source">INFORMS</div>
+        <h3>Study Finds That On-Demand Wage Access Boosts Savings and Financial Engagement for Low-Wage Workers</h3>
+        <p>Official INFORMS press release highlighting findings from the Information Systems Research publication.</p>
+      </div>
+      <span class="press-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<section id="cv">
+  <h2 class="section-title">CV</h2>
+  <p class="section-subtitle">Education, experience, and skills</p>
+
+  <div class="cv-section">
+    <h3>Education</h3>
+    <div class="cv-entry">
+      <div class="cv-entry-main">
+        <div class="cv-entry-title">M.S. in Natural Language Processing</div>
+        <div class="cv-entry-detail">University of California, Santa Cruz · Dept. of Computer Science and Engineering</div>
+      </div>
+      <div class="cv-entry-date">Expected Jan 2027</div>
+    </div>
+    <div class="cv-entry">
+      <div class="cv-entry-main">
+        <div class="cv-entry-title">Ph.D. in Information Systems</div>
+        <div class="cv-entry-detail">KAIST · Dept. of Management Engineering</div>
+      </div>
+      <div class="cv-entry-date">2025</div>
+    </div>
+    <div class="cv-entry">
+      <div class="cv-entry-main">
+        <div class="cv-entry-title">B.S. in Mathematics — Highest Distinction</div>
+        <div class="cv-entry-detail">Sogang University · Full Tuition Scholarship</div>
+      </div>
+      <div class="cv-entry-date"></div>
+    </div>
+  </div>
+
+  <div class="cv-section">
+    <h3>Employment</h3>
+    <div class="cv-entry">
+      <div class="cv-entry-main">
+        <div class="cv-entry-title">Senior Consultant</div>
+        <div class="cv-entry-detail">Deloitte Consulting LLC · Seoul, Korea</div>
+        <div class="cv-entry-detail" style="margin-top: 4px; line-height: 1.6;">
+          Led digital transformation strategy and performance management projects across 3+ industries.
+          Designed KPI frameworks for executives, built statistical models on 5,000+ employee records
+          for organizational diagnostics, and developed analytics dashboards integrated with Oracle Cloud.
+          Also conducted HR due diligence for a global e-commerce company's cross-border M&amp;A.
+        </div>
+      </div>
+      <div class="cv-entry-date">Jan 2018 – Feb 2021</div>
+    </div>
+  </div>
+
+  <div class="cv-section">
+    <h3>Skills</h3>
+    <div class="skills-grid">
+      <div>
+        <div class="skills-label ci-label">Causal Inference &amp; Econometrics (IS)</div>
+        <div class="research-tags">
+          <span class="tag">Staggered DID</span><span class="tag">PSM / IPTW</span><span class="tag">IV / RD</span>
+          <span class="tag">Double ML</span><span class="tag">Causal Forest</span><span class="tag">A/B Testing</span>
+        </div>
+      </div>
+      <div>
+        <div class="skills-label nlp-label">ML &amp; NLP</div>
+        <div class="research-tags">
+          <span class="tag">PyTorch</span><span class="tag">Hugging Face</span><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span>
+          <span class="tag">LLM Fine-tuning</span><span class="tag">RAG</span><span class="tag">Prompt Engineering</span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 16px;">
+      <div class="skills-label prog-label">Programming</div>
+      <div class="research-tags">
+        <span class="tag">Python</span><span class="tag">R</span><span class="tag">SQL</span><span class="tag">Stata</span><span class="tag">Git</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cv-section">
+    <h3>Teaching Experience</h3>
+    <div class="cv-entry">
+      <div class="cv-entry-main">
+        <div class="cv-entry-title">Lecturer — Business Analytics (MGMT3024)</div>
+        <div class="cv-entry-detail">Kyung Hee University · 32 students · Eval: 92.67/100</div>
+      </div>
+      <div class="cv-entry-date">Spring 2024</div>
+    </div>
+    <div class="cv-entry">
+      <div class="cv-entry-main">
+        <div class="cv-entry-title">Guest Lecturer — AI/ML in MIS (Delivered in English)</div>
+        <div class="cv-entry-detail">Kyung Hee University · Introduction to MIS (MGMT2001)</div>
+      </div>
+      <div class="cv-entry-date">Spring &amp; Fall 2024</div>
+    </div>
+    <div class="cv-entry">
+      <div class="cv-entry-main">
+        <div class="cv-entry-title">Teaching Assistant (7 courses)</div>
+        <div class="cv-entry-detail">KAIST · MBA/EMBA programs including Database, Financial Big Data, Cloud Computing</div>
+      </div>
+      <div class="cv-entry-date">2021 – 2023</div>
+    </div>
+  </div>
+
+  <div class="cv-section">
+    <h3>Honors &amp; Awards</h3>
+    <div class="cv-entry">
+      <div class="cv-entry-main">
+        <div class="cv-entry-title">Ph.D. Fellowship</div>
+        <div class="cv-entry-detail">KAIST</div>
+      </div>
+      <div class="cv-entry-date">2021 – 2024</div>
+    </div>
+    <div class="cv-entry">
+      <div class="cv-entry-main">
+        <div class="cv-entry-title">Travel Grant Award</div>
+        <div class="cv-entry-detail">KAIST</div>
+      </div>
+      <div class="cv-entry-date">2023</div>
+    </div>
+    <div class="cv-entry">
+      <div class="cv-entry-main">
+        <div class="cv-entry-title">Full Tuition Scholarship — Highest Distinction</div>
+        <div class="cv-entry-detail">Sogang University</div>
+      </div>
+      <div class="cv-entry-date"></div>
+    </div>
+  </div>
+
+  <div class="cv-section">
+    <h3>Academic Service</h3>
+    <div class="cv-entry">
+      <div class="cv-entry-main">
+        <div class="cv-entry-title">Reviewer</div>
+        <div class="cv-entry-detail">International Conference on Information Systems (ICIS) 2022, 2023, 2024 · Conference on Information Systems and Technology (CIST) 2023, 2025 · Pacific Asia Conference on Information Systems (PACIS) 2023</div>
+      </div>
+      <div class="cv-entry-date"></div>
+    </div>
+  </div>
+
+  <a href="https://bit.ly/4eWGqSm" target="_blank" class="cv-download">⬇ Download Full CV (PDF)</a>
+
+</section>
+
+</main>
+
+<footer><p>&copy; 2026 Jihye (Jessica) Kim</p></footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 10));
+const toggle = document.getElementById('mobileToggle');
+const navLinks = document.getElementById('navLinks');
+toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }});
+}, { threshold: 0.1 });
+document.querySelectorAll('section:not(.hero)').forEach(s => {
+  s.style.opacity='0'; s.style.transform='translateY(16px)'; s.style.transition='opacity 0.5s ease, transform 0.5s ease'; obs.observe(s);
+});
+</script>
+</body>
+</html>

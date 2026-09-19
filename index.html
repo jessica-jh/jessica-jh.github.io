@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jihye (Jessica) Kim, Researcher</title>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Jihye Kim (Ji Hye Kim) | Information Systems &amp; AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
 :root {
   --font-serif: 'Lora', Georgia, serif;
@@ -43,7 +43,7 @@ main { max-width: 900px; margin: 0 auto; padding: 0 24px; }
 .hero-text { flex: 1; }
 .hero-text h1 { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 8px; }
 .hero-legal { font-size: 0.78rem; color: var(--text-tertiary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; font-family: var(--font-sans); }
-.hero-affiliation { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.5; }
+.hero-affiliation { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.5; }
 .hero-bio { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; }
 .hero-tracks { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
 .hero-track-badge { font-size: 0.78rem; font-weight: 600; padding: 5px 14px; border-radius: 20px; letter-spacing: 0.02em; }
@@ -144,225 +144,133 @@ footer p { font-size: 0.8rem; color: var(--text-tertiary); }
   .news-item { flex-direction: column; gap: 4px; }
   .pub-grid { flex-direction: column; }
 }
+
+
+/* Current research and teaching */
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--accent-light); outline-offset: 4px; }
+.skip-link { position: fixed; top: -60px; left: 12px; z-index: 200; padding: 8px 14px; background: white; }
+.skip-link:focus { top: 8px; }
+.affiliation-detail { font-size: .8rem; color: var(--text-tertiary); }
+.hero { border-top: 0; }
+.hero-text { min-width: 0; }
+.pub-title { overflow-wrap: anywhere; }
+.pub-column-header { color: var(--text); border-bottom-color: var(--border); }
+.pub-status.review { color: #765300; }
+.presentations summary { cursor: pointer; font-family: var(--font-serif); font-weight: 600; padding: 12px 0; margin-bottom: 18px; }
+.teaching-lead { border-left: 3px solid var(--accent); padding: 22px 26px; background: var(--bg-alt); margin-bottom: 32px; }
+.teaching-lead h3 { font-family: var(--font-serif); font-size: 1.2rem; margin: 8px 0; }
+.teaching-lead p { margin: 10px 0; font-size: .9rem; }
+.teaching-lead .role-label { color: var(--accent); font-weight: 600; font-size: .8rem; }
+.evaluation strong { font-size: 1.15rem; }
+.evaluation span { color: var(--text-tertiary); }
+.teaching-courses { padding-left: 20px; font-size: .86rem; color: var(--text-secondary); }
+.teaching-courses li { margin: 5px 0; }
+@media (max-width: 700px) { .hero-text { width: 100%; } .teaching-lead { padding: 18px; } .pub-status { margin-left: 0; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } .fade-in { opacity: 1; transform: none; } }
+
+/* Research themes and selected implementations */
+.theme-list { display:grid; grid-template-columns:1fr 1fr; gap:36px; }
+.theme h3,.project h3 { font-family:var(--font-serif);font-size:1.14rem;line-height:1.4;margin-bottom:12px; }
+.theme p,.project p { font-size:.9rem;line-height:1.75;color:var(--text-secondary); }
+.theme .theme-examples,.project .project-methods { font-size:.78rem;margin-top:14px;color:var(--text-tertiary); }
+.project { display:flex; gap:24px;justify-content:space-between; padding:24px 0;border-bottom:1px solid var(--border); }
+.project:first-child { padding-top:0; }
+.project:last-child { border-bottom:0;padding-bottom:0; }
+.project h3 a { color:var(--text);text-decoration:none; }
+.project h3 a:hover { color:var(--accent);text-decoration:underline; }
+.project-code { white-space:nowrap;font-size:.8rem;align-self:flex-start;margin-top:4px; }
+.teaching-interests { font-size:.86rem;line-height:1.8;color:var(--text-secondary);margin-top:20px; }
+.hero-track-badge { background:none!important;border:0!important;border-radius:0;padding:0; }
+.hero-tracks { gap:8px 18px; }
+@media (max-width:700px) { .theme-list { grid-template-columns:1fr;gap:28px; } .project { flex-direction:column;gap:10px; } .hero-bio { text-align:left; } }
+
+.presentation-list { padding-left:20px;margin:0; }
+.presentation-list li { padding-left:4px;margin-bottom:18px;font-size:.86rem;line-height:1.75;color:var(--text-secondary); }
+.presentation-title { color:var(--text); }
+.presentation-venue { font-style:italic; }
+.presentation-link { font-size:.8rem;white-space:nowrap;margin-left:6px; }
 </style>
-</head>
+<meta name="description" content="Jihye Kim studies how digital technologies shape information and decisions, spanning financial technologies, digital platforms, and AI evaluation. Research interests: economics of IS, causal inference, and AI evaluation and alignment."></head>
 <body>
 
-<nav id="nav">
+<a class="skip-link" href="#main">Skip to content</a><nav id="nav">
   <div class="nav-inner">
     <a href="#" class="nav-name">Jihye Kim</a>
-    <div class="nav-links" id="navLinks">
-      <a href="#publications">Publications</a>
-      <a href="#cv">CV</a>
-    </div>
-    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+    <div class="nav-links" id="navLinks"><a href="#about">About</a><a href="#research-themes">Research</a><a href="#publications">Papers</a><a href="#projects">Projects</a><a href="#cv">CV</a></div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu" aria-controls="navLinks" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<main>
+<main id="main">
 
 <!-- HERO -->
-<section class="hero" id="about">
-  <img class="hero-photo fade-in" src="profile.jpg" alt="Jihye Kim">
+<section class="hero" id="about" aria-labelledby="name">
+  <img class="hero-photo fade-in" src="profile.jpg" alt="Jihye Kim (Ji Hye Kim)">
   <div class="hero-text">
-    <h1 class="fade-in delay-1">Jihye (Jessica) Kim</h1>
-    <div class="hero-legal fade-in delay-1">Ji Hye Kim</div>
-    <div class="hero-affiliation fade-in delay-2">Ph.D., KAIST &middot; Graduate Student in NLP, UC Santa Cruz</div>
-    <div class="hero-tracks fade-in delay-2">
-      <span class="hero-track-badge nlp">AI Safety &amp; Evaluation</span>
-      <span class="hero-track-badge ci">Causal Inference &amp; Econometrics (IS)</span>
-    </div>
-    <p class="hero-bio fade-in delay-2">
-      I'm a Ph.D. from <a href="https://www.kaist.ac.kr" target="_blank">KAIST</a> (Information Systems), and I'm finishing an additional M.S. in NLP in the Department of Computer Science and Engineering at <a href="https://www.ucsc.edu" target="_blank">UC Santa Cruz</a>. My doctoral training was in causal inference and econometrics. I've since moved into AI evaluation and agentic AI safety and security, studying where LLM agents quietly stop behaving the way they should and how to build benchmarks that catch it.
-    </p>
-    <p class="hero-bio fade-in delay-2">
-      My first paper as lead author, on earned-wage access and its effect on saving behavior, was published in <a href="https://doi.org/10.1287/isre.2023.0673" target="_blank"><em>Information Systems Research</em></a> (UTD24/FT50). At UCSC, I've been working on negotiation agents that learn to deceive, methods for catching agents that covertly encode data, and safety benchmarks for mental-health apps and enterprise multi-agent systems.
-    </p>
-    <p class="hero-bio fade-in delay-2">
-      Before graduate school, I spent three years as a Senior Consultant at <a href="https://www.deloitte.com/us/en/services.html" target="_blank">Deloitte Consulting</a> in Seoul, turning vague executive requests into KPI systems and dashboards people actually used.
-    </p>
-    <div class="hero-links fade-in delay-3">
-      <a href="mailto:jihye.jkim@gmail.com">&#9993; Email</a>
-      <a href="https://www.linkedin.com/in/jihyekimphd/" target="_blank">LinkedIn</a>
-      <a href="https://github.com/jessica-jh" target="_blank">GitHub</a>
-      <a href="https://scholar.google.com/citations?user=53q-JWUAAAAJ&hl=en" target="_blank">Google Scholar</a>
+    <h1 class="fade-in delay-1" id="name">Jihye Kim (Ji Hye Kim)</h1>
+    <div class="hero-affiliation fade-in delay-2"><strong>Ph.D. in Information Systems, KAIST</strong><br><strong>M.S. in Natural Language Processing, UC Santa Cruz · Expected January 2027</strong><br><span class="affiliation-detail">Department of Computer Science and Engineering</span></div><div class="hero-tracks fade-in delay-2"><span class="hero-track-badge ci">Economics of IS</span><span class="hero-track-badge ci">Causal Inference</span><span class="hero-track-badge ci">AI Evaluation &amp; Alignment</span></div>
+    <p class="hero-bio fade-in delay-2">Hi, I’m Jihye Kim. I also go by Jessica. I received my Ph.D. in Information Systems from <a href="https://www.kaist.ac.kr" target="_blank" rel="noopener noreferrer">KAIST</a> in 2025. I am currently completing an M.S. in Natural Language Processing in the Department of Computer Science and Engineering at <a href="https://www.ucsc.edu" target="_blank" rel="noopener noreferrer">UC Santa Cruz</a>. Before my Ph.D., I spent three years at Deloitte Consulting in Seoul, working on digital transformation, analytics, and organizational strategy.</p><p class="hero-bio fade-in delay-2">My research asks how the design of digital technologies shapes the information people receive and the decisions they make. My early work focused on firms’ adoption of new IT services and on digital platforms. I continue to pursue these topics while extending this research to AI systems that generate advice and act on users’ behalf, with a particular focus on evaluating their judgments and behavior.</p><div class="hero-links fade-in delay-3">
+      <a href="mailto:jihye.jkim@gmail.com">✉ Email</a>
+      <a href="https://www.linkedin.com/in/jihyekimphd/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/jessica-jh" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://scholar.google.com/citations?user=53q-JWUAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
     </div>
   </div>
 </section>
 
 <!-- PUBLICATIONS -->
-<section id="publications">
-  <h2 class="section-title">Publications</h2>
-  <p class="section-subtitle">Selected papers (* = first author)</p>
+<section id="research-themes" aria-labelledby="themes-title">
+<h2 class="section-title" id="themes-title">Research Themes</h2>
+<p class="section-subtitle">How do digital technologies shape behavior and interactions, and what are the consequences for individuals, organizations, and markets?</p>
+<div class="theme-list">
+<article class="theme"><h3>Economics of IS &amp; Digital Platforms</h3><p>I use causal inference to study how financial technologies, platform rules, and digital interfaces affect economic behavior and outcomes. My current work examines how access to earned wages changes financial behavior, how platform governance shapes competition, and how self-service technologies affect the variety of consumer demand.</p><p class="theme-examples">Economics of Information Systems · Platform Governance</p></article>
+<article class="theme"><h3>Human–AI Interaction &amp; Trustworthy AI</h3><p>I develop evaluation frameworks to diagnose failure modes in language models and system architectures to address them. My work examines whether models distinguish helpful guidance from misleading persuasion, accurately represent user preferences, and respect information boundaries in multi-agent systems. I use these evaluations to guide architectural changes and test whether they improve reliability in interactions with users and other agents.</p><p class="theme-examples">Multi-Agent Systems · AI Evaluation · Trustworthy AI</p></article>
+</div></section><section id="publications">
+  <h2 class="section-title">Papers &amp; Ongoing Work</h2>
+  <p class="section-subtitle">Published work, working papers, and ongoing projects. * First author; † equal contribution.</p>
 
   <div class="pub-grid">
 
-    <!-- NLP & LLM -->
-    <div class="pub-column">
-      <div class="pub-column-header nlp">AI Safety &amp; Evaluation</div>
-
-      <div class="pub-item nlp">
-        <div class="pub-title">Coercion Suppression Increases Preference Hallucinations via a Deceptive Bypass in K-Level Negotiation Agents <span class="pub-status accepted">Accepted</span></div>
-        <div class="pub-venue">TrustNLP at ACL 2026</div>
-        <div class="pub-authors"><strong>Jihye Kim*</strong> (Single Author)</div>
-        <div class="pub-desc">Built an Observer&ndash;Planner&ndash;Actor negotiation agent with an appraisal gate to test what happens when you filter out obvious coercion. Filters cut overt coercion from 35% to 6%, but the same reasoning resurfaces as preference hallucination near baseline levels (33&ndash;37%). Net deception barely moves. Surface filtering alone isn't enough.</div>
-        <div class="pub-links">
-          <a class="pub-link" href="https://github.com/jessica-jh/socially-aligned-strategic-agents" target="_blank">GitHub</a>
-          <a class="pub-link" href="https://aclanthology.org/2026.trustnlp-main.17/" target="_blank">Paper</a>
+    <div class="pub-column"><h3 class="pub-column-header">Journal Articles</h3><ul class="presentation-list"><li><span class="presentation-authors"><strong>Jihye Kim*</strong>, Seokchae Yoon, Sunghun Chung, Wonseok Oh</span>. <span class="presentation-title">Working Daily, Paid Monthly? Effects of On-Demand Earned Wage Access on the Financial Well-Being of Low-Wage Workers</span>. <span class="presentation-venue">Information Systems Research · Articles in Advance</span>. <a class="presentation-link" href="https://doi.org/10.1287/isre.2023.0673" target="_blank" rel="noopener noreferrer">Journal</a> <a class="presentation-link" href="https://www.cfodive.com/news/instant-paychecks-can-boost-low-income-workers-savings-habits-report-find/814220/" target="_blank" rel="noopener noreferrer">Media</a> </li></ul></div><div class="pub-column"><h3 class="pub-column-header">Working Papers &amp; Preprints</h3><ul class="presentation-list"><li><span class="presentation-authors"><strong>Jihye Kim*</strong>, Seokchae Yoon, Anindya Ghose, Wonseok Oh</span>. <span class="presentation-title">Beyond Efficiency: The Impact of Self-Order Kiosk Adoption on Demand Variety</span>. <span class="presentation-venue">Working paper</span>. </li><li><span class="presentation-authors"><strong>Jihye Kim*</strong>, Jeffrey Flanigan</span>. <span class="presentation-title">Right or Wrong, Models Comply: Directional Blindness in LLM Moral Judgment</span>. <span class="presentation-venue">arXiv preprint · 2026</span>. <a class="presentation-link" href="https://arxiv.org/abs/2606.14037" target="_blank" rel="noopener noreferrer">arXiv</a> </li></ul></div><div class="pub-column"><h3 class="pub-column-header">Conference &amp; Workshop Papers (Proceedings)</h3><ul class="presentation-list"><li><span class="presentation-authors"><strong>Jihye Kim*</strong> (Single Author)</span>. <span class="presentation-title">Coercion Suppression &amp; Preference Hallucinations in LLM Negotiation Agents</span>. <span class="presentation-venue">6th Workshop on Trustworthy NLP (TrustNLP) at ACL 2026</span>. <a class="presentation-link" href="https://github.com/jessica-jh/socially-aligned-strategic-agents" target="_blank" rel="noopener noreferrer">GitHub</a> <a class="presentation-link" href="https://aclanthology.org/2026.trustnlp-main.17/" target="_blank" rel="noopener noreferrer">Paper</a> </li><li><span class="presentation-authors">Pratibha Revankar, <strong>Jihye Kim</strong>, Umit Azirakhmet</span>. <span class="presentation-title">SlugRAG at SemEval-2026 Task 8: Domain-Specific Fine-Tuning and Model Scaling for Multi-Turn RAG Retrieval</span>. <span class="presentation-venue">SemEval at ACL 2026</span>. <a class="presentation-link" href="https://aclanthology.org/2026.semeval-1.135/" target="_blank" rel="noopener noreferrer">Paper</a> </li><li><span class="presentation-authors">Yoonha Park, <strong>Jihye Kim</strong>, Kyumin Lee, Wonseok Oh</span>. <span class="presentation-title">The Information Billboard: Effects of Popular Search Terms on Search Behaviors and Digital Divide</span>. <span class="presentation-venue">57th Hawaii International Conference on System Sciences (HICSS 2024) · Jan 2024</span>. <a class="presentation-link" href="https://scholarspace.manoa.hawaii.edu/server/api/core/bitstreams/2b5238a1-0bed-4fb8-a37b-14da0267ba98/content" target="_blank" rel="noopener noreferrer">Paper</a> </li></ul></div><div class="pub-column"><h3 class="pub-column-header">Conference &amp; Workshop Presentations (Non-archival)</h3><ul class="presentation-list"><li><span class="presentation-authors">Pratibha Revankar, Kargi Chauhan, <strong>Jihye Kim</strong>, Sadiba Nusrat Nur, Vincent Siu, Chenguang Wang</span>. <span class="presentation-title">MIRAGE: A Polarity-Flipping Encoding Subspace in LLM Agents</span>. <span class="presentation-venue">2nd Workshop on Agents in the Wild (AIWILD) at ICML 2026</span> <a class="presentation-link" href="https://openreview.net/pdf?id=KAtYLnOoo9" target="_blank" rel="noopener noreferrer">Paper</a> </li><li><span class="presentation-authors"><strong>Jihye Kim*</strong>, Seokchae Yoon</span>. <span class="presentation-title">Could Self-Order Kiosks Drive Unequal Sales Variety?</span>. <span class="presentation-venue">35th Workshop on Information Systems and Economics (WISE 2024) · Bangkok · Dec 2024</span> <a class="presentation-link" href="https://drive.google.com/file/d/132DUcgQ9WhRwKKtXUqO4Uz0UA88s98xV/view?usp=sharing" target="_blank" rel="noopener noreferrer">Slides</a> </li><li><span class="presentation-authors"><strong>Jihye Kim*</strong>, Seokchae Yoon, Sunghun Chung</span>. <span class="presentation-title">Working Daily, Paid Monthly? Effects of On-Demand Earned Wage Access on the Financial Well-Being of Low-Wage Workers</span>. <span class="presentation-venue">Conference on Information Systems and Technology (CIST 2023) · Phoenix, AZ · October 2023</span> <a class="presentation-link" href="https://drive.google.com/file/d/1btpQQvjxebylYYsN1O2W6h39BNpcK3Ou/view?usp=sharing" target="_blank" rel="noopener noreferrer">Slides</a> </li><li><span class="presentation-authors"><strong>Jihye Kim*</strong>, Hyeokkoo Eric Kwon, Kun Shin Im, Wonseok Oh</span>. <span class="presentation-title">In-App Payment Regulation and Platform Governance</span>. <span class="presentation-venue">KrAIS Summer Workshop 2023 · Seoul · Jul 2023</span></li><li><span class="presentation-authors"><strong>Jihye Kim*</strong>, Seokchae Yoon, Sunghun Chung, Wonseok Oh</span>. <span class="presentation-title">On-Demand Earned Wage Access and Financial Well-Being of Low-Wage Workers</span>. <span class="presentation-venue">Marketing Science: Diversity, Equity &amp; Inclusion Conference (MSI DEI 2023) · Dallas, TX · Mar 2023</span></li><li><span class="presentation-authors"><strong>Jihye Kim*</strong>, Hyeokkoo Eric Kwon, Kun Shin Im, Wonseok Oh</span>. <span class="presentation-title">The Economics of In-App Payment Options</span>. <span class="presentation-venue">Conference on Information Systems and Technology (CIST 2022) · Indianapolis, IN · October 2022</span> <a class="presentation-link" href="https://drive.google.com/file/d/1Z9gWQhSY7RxFynaXp5gmJ5c5EJsEOGWS/view?usp=sharing" target="_blank" rel="noopener noreferrer">Slides</a> </li></ul></div><div class="pub-column"><h3 class="pub-column-header">Research Under Review</h3><p class="section-subtitle">To preserve confidentiality during peer review, the entries below use general descriptive labels rather than actual manuscript titles.</p><div class="pub-item"><div class="pub-title">Platform Governance and Competition in Digital Markets <span class="pub-status review">Under review</span></div><div class="pub-venue">Journal of Management Information Systems</div></div><div class="pub-item"><div class="pub-title">Evaluating Relational Behavior in Conversational AI <span class="pub-status review">Under review</span></div><div class="pub-venue">ICLR 2027 · Main Conference</div></div><div class="pub-item"><div class="pub-title">Calibrating Confidence in Language Model Responses <span class="pub-status review">Under review</span></div><div class="pub-venue">NeurIPS workshop</div></div></div><div class="pub-column"><h3 class="pub-column-header">Research in Progress</h3><div class="pub-item nlp">
+        <div class="pub-title">Benchmarking Data Security Failures in Enterprise Multi-Agent LLM Systems <span class="pub-status prep">In progress</span></div>
+        <div class="pub-venue">Ongoing research at UC Santa Cruz in collaboration with Uniphore</div>
         </div>
-      </div>
 
-      <div class="pub-item nlp">
-        <div class="pub-title">MIRAGE: A Polarity-Flipping Encoding Subspace in LLM Agents <span class="pub-status accepted">Accepted</span></div>
-        <div class="pub-venue">ICML 2026 Workshop on Agentic AI: Wild Problems and Rigorous Solutions (AIWILD)</div>
-        <div class="pub-authors">Pratibha Revankar, Kargi Chauhan, <strong>Jihye Kim</strong>, Sadiba Nusrat Nur, Vincent Siu, Chenguang Wang</div>
-        <div class="pub-desc">Found a shared subspace in LLM residual streams that lights up when an agent covertly encodes data (Base64, ROT13, acrostics, and others). A probe trained on eight encoding families generalizes to a held-out ninth at AUC 0.975&ndash;1.000, and a polarity flip at the planning token flags inline execution versus tool delegation before any encoded text exists. Real-time monitoring hits AUC 0.918, versus 0.518 for output-only detection.</div>
-        <div class="pub-links">
-          <a class="pub-link" href="https://openreview.net/pdf?id=KAtYLnOoo9" target="_blank">Paper</a>
-        </div>
-      </div>
-
-      <div class="pub-item nlp">
-        <div class="pub-title">SlugRAG: Domain-Specific Multi-Turn Retrieval <span class="pub-status accepted">Accepted</span></div>
-        <div class="pub-venue">SemEval at ACL 2026</div>
-        <div class="pub-authors">Pratibha Revankar, <strong>Jihye Kim</strong>, Umit Azirakhmet</div>
-        <div class="pub-desc">A hybrid dense-sparse retrieval pipeline (BGE-M3 plus BM25) with conversational query rewriting for a shared task on multi-turn RAG. Beat zero-shot baselines by 44.3% on Recall@10 across four QA domains.</div>
-        <div class="pub-links">
-          <a class="pub-link" href="https://aclanthology.org/2026.semeval-1.135/" target="_blank">Paper</a>
-        </div>
-      </div>
-
-      <div class="pub-item nlp">
-        <div class="pub-title">Right or Wrong, Models Comply: Directional Blindness in LLM Moral Judgment <span class="pub-status prep">Preprint</span></div>
-        <div class="pub-authors"><strong>Jihye Kim*</strong>, Jeffrey Flanigan</div>
-        <div class="pub-desc">A controlled evaluation of how authority and majority cues shift model judgment while task, format, and answer space stay fixed. Scaled to roughly 972K responses across nine models, three prompting conditions, and two domains, with metrics that separate beneficial compliance from a model just going along with the crowd.</div>
-        <div class="pub-links">
-          <a class="pub-link" href="https://arxiv.org/abs/2606.14037" target="_blank">arXiv</a>
-        </div>
-      </div>
-
-      <div class="pub-item nlp">
-        <div class="pub-title">Optimizing Verbal Calibration: Structural Prompting for Reducing Confidence Error in LLMs <span class="pub-status review">Under Review</span></div>
-        <div class="pub-venue">EMNLP 2026</div>
-        <div class="pub-authors"><strong>Jihye Kim*</strong>, Umit Azirakhmet, Sophia Yang</div>
-        <div class="pub-desc">Prompting interventions that narrow the gap between how confident a model sounds and how often it's right, tested on medical and legal reasoning tasks across models from 4B to 80B parameters. A skeptical self-auditing intervention improved calibration in every pairing tried, without costing accuracy.</div>
-        <div class="pub-links"><a class="pub-link" href="https://github.com/Umit-Azirakhmet/llm-trust-gap" target="_blank">GitHub</a></div>
-      </div>
-
-      <div class="pub-item nlp">
-        <div class="pub-title">Evaluation Framework for Enterprise Multi-Agent Security <span class="pub-status prep">In Progress</span></div>
-        <div class="pub-venue">UC Santa Cruz &middot; with Peng Qi, Ph.D. (Uniphore)</div>
-        <div class="pub-authors">Peng Qi, <strong>Jihye Kim</strong>, et al.</div>
-        <div class="pub-desc">A benchmark for multi-agent LLM systems that leak information across role-based access boundaries. Building the attack taxonomy, synthetic dialogue data, and success/leakage metrics from scratch, with a pilot already running across one-shot, multi-turn, framing, and collusive attacks.</div>
-      </div>
-
-      <div class="pub-item nlp">
-        <div class="pub-title">Evaluating and Fine-Tuning LLMs for Long-Term Supportive Value in Mental-Health Conversations <span class="pub-status prep">In Progress</span></div>
-        <div class="pub-venue">UC Santa Cruz &middot; with Prof. Magy Seif El-Nasr &middot; in collaboration with Stanford University</div>
-        <div class="pub-authors">Shukla, <strong>Jihye Kim</strong>, et al.</div>
-        <div class="pub-desc">Building an evaluation framework that measures whether LLM responses in emotional-support conversations actually help someone over the long run, versus quietly encouraging them to keep relying on the model instead of people in their life. We're simulating multi-turn conversations across different user styles, scoring them with an LLM-judge pipeline and inter-rater checks, and fine-tuning models to reduce that pattern.</div>
-      </div>
-
-    </div>
-
-    <!-- Causal Inference -->
-    <div class="pub-column">
-      <div class="pub-column-header ci">Causal Inference &amp; Econometrics (IS)</div>
-
-      <div class="pub-item ci">
-        <div class="pub-title">Working Daily, Paid Monthly? Effects of On-Demand Earned Wage Access on the Financial Well-Being of Low-Wage Workers <span class="pub-status published">Published</span></div>
-        <div class="pub-venue">Information Systems Research (ISR) &middot; UTD24/FT50 &middot; 2026</div>
-        <div class="pub-authors"><strong>Jihye Kim*</strong>, Seokchae Yoon, Sunghun Chung, Wonseok Oh</div>
-        <div class="pub-desc">Four thousand low-wage workers, 18 months of data, four identification strategies (staggered DID, PSM, IV, double ML). On-demand wage access raises financial-monitoring time by 12.9% and saving frequency by 3.7%, validated with a randomized experiment on Prolific (n = 312).</div>
-        <div class="pub-links">
-          <a class="pub-link" href="https://doi.org/10.1287/isre.2023.0673" target="_blank">Journal</a>
-          <a class="pub-link" href="https://www.cfodive.com/news/instant-paychecks-can-boost-low-income-workers-savings-habits-report-find/814220/" target="_blank">Media</a>
-        </div>
-      </div>
-
-      <div class="pub-item ci">
-        <div class="pub-title">Beyond Efficiency: The Impact of Self-Order Kiosk Adoption on Demand Variety <span class="pub-status review">Under Review</span></div>
-        <div class="pub-venue">Manufacturing &amp; Service Operations Management (MSOM) &middot; UTD24/FT50</div>
-        <div class="pub-authors"><strong>Jihye Kim*</strong>, Seokchae Yoon, Anindya Ghose, Wonseok Oh</div>
-        <div class="pub-desc">Self-order kiosks don't just speed up checkout, they change what people order. Staggered DID and IPTW on 17 months of data from 2,000+ stores show a 13.6% jump in order customization, landing unevenly across income levels.</div>
-      </div>
-
-      <div class="pub-item ci">
-        <div class="pub-title">The Economics of In-App Payment Options: Implications for Digital Platform Governance <span class="pub-status review">Under Review</span></div>
-        <div class="pub-venue">Journal of Management Information Systems (JMIS) &middot; FT50</div>
-        <div class="pub-authors"><strong>Jihye Kim*</strong>, Hyeokkoo Eric Kwon, Wonseok Oh, Kunshin Im</div>
-        <div class="pub-desc">When Google mandated in-app payment fees, spending didn't just drop, it reallocated. App-week DID and triple-differences on a 35,000-user panel show the shift varied by income tier and app ranking.</div>
-      </div>
-
-      <div class="pub-item ci">
-        <div class="pub-title">Could Self-Order Kiosks Drive Unequal Sales Variety? <span class="pub-status accepted">Accepted</span></div>
-        <div class="pub-venue">35th Workshop on Information Systems and Economics (WISE 2024) &middot; Bangkok &middot; Dec 2024</div>
-        <div class="pub-authors"><strong>Jihye Kim*</strong>, Seokchae Yoon</div>
-        <div class="pub-links"><a class="pub-link" href="https://drive.google.com/file/d/132DUcgQ9WhRwKKtXUqO4Uz0UA88s98xV/view?usp=sharing" target="_blank">Slides</a></div>
-      </div>
-
-      <div class="pub-item ci">
-        <div class="pub-title">The Information Billboard: Effects of Popular Search Terms on Search Behaviors and Digital Divide <span class="pub-status accepted">Accepted</span></div>
-        <div class="pub-venue">57th Hawaii International Conference on System Sciences (HICSS 2024) &middot; Jan 2024</div>
-        <div class="pub-authors">Yoonha Park, <strong>Jihye Kim</strong>, Kyumin Lee, Wonseok Oh</div>
-        <div class="pub-desc">What happens to search behavior when a portal removes its "trending searches" feature? We combined reduced-form DID with a structural demand model (MDCEV) on Nielsen mobile-panel data to find out.</div>
-        <div class="pub-links"><a class="pub-link" href="https://scholarspace.manoa.hawaii.edu/server/api/core/bitstreams/2b5238a1-0bed-4fb8-a37b-14da0267ba98/content" target="_blank">Paper</a></div>
-      </div>
-
-      <div class="pub-item ci">
-        <div class="pub-title">Working Daily, Paid Monthly? <span class="pub-status accepted">Accepted</span></div>
-        <div class="pub-venue">15th Conference on Information Systems and Technology (CIST 2023) &middot; Phoenix, AZ &middot; Oct 2023</div>
-        <div class="pub-authors"><strong>Jihye Kim*</strong>, Seokchae Yoon, Sunghun Chung</div>
-        <div class="pub-links"><a class="pub-link" href="https://drive.google.com/file/d/1btpQQvjxebylYYsN1O2W6h39BNpcK3Ou/view?usp=sharing" target="_blank">Slides</a></div>
-      </div>
-
-      <div class="pub-item ci">
-        <div class="pub-title">In-App Payment Regulation and Platform Governance <span class="pub-status accepted">Accepted</span></div>
-        <div class="pub-venue">KrAIS Summer Workshop 2023 &middot; Seoul &middot; Jul 2023</div>
-        <div class="pub-authors"><strong>Jihye Kim*</strong>, Hyeokkoo Eric Kwon, Wonseok Oh, Kunshin Im</div>
-      </div>
-
-      <div class="pub-item ci">
-        <div class="pub-title">On-Demand Earned Wage Access and Financial Well-Being of Low-Wage Workers <span class="pub-status accepted">Accepted</span></div>
-        <div class="pub-venue">Marketing Science: Diversity, Equity &amp; Inclusion Conference (MSI DEI 2023) &middot; Dallas, TX &middot; Mar 2023</div>
-        <div class="pub-authors"><strong>Jihye Kim*</strong>, Seokchae Yoon, Sunghun Chung</div>
-      </div>
-
-      <div class="pub-item ci">
-        <div class="pub-title">The Economics of In-App Payment Options <span class="pub-status accepted">Accepted</span></div>
-        <div class="pub-venue">14th Conference on Information Systems and Technology (CIST 2022) &middot; Indianapolis, IN &middot; Oct 2022</div>
-        <div class="pub-authors"><strong>Jihye Kim*</strong>, Hyeokkoo Eric Kwon, Wonseok Oh, Kunshin Im</div>
-        <div class="pub-links"><a class="pub-link" href="https://drive.google.com/file/d/1Z9gWQhSY7RxFynaXp5gmJ5c5EJsEOGWS/view?usp=sharing" target="_blank">Slides</a></div>
-      </div>
-    </div>
-
-  </div>
+      </div></div>
 </section>
 
-<!-- PRESS -->
+<section id="projects" aria-labelledby="projects-title">
+<h2 class="section-title" id="projects-title">Selected Open-Source Projects</h2>
+<p class="section-subtitle">Tools and implementations for working with evidence and extracting information from text.</p>
+<div class="project-list">
+<article class="project"><div><h3><a href="https://github.com/jessica-jh/Sourcerer" target="_blank" rel="noopener noreferrer">Sourcerer</a></h3><p>Searches a personal PDF library for passages that support a claim, combining semantic retrieval, reranking, and evidence assessment with section-level source references.</p><p class="project-methods">Semantic search · Reranking · Evidence attribution</p></div><a class="project-code" href="https://github.com/jessica-jh/Sourcerer" target="_blank" aria-label="View Sourcerer on GitHub" rel="noopener noreferrer">GitHub ↗</a></article>
+<article class="project"><div><h3><a href="https://github.com/jessica-jh/mathematical_entity_extraction" target="_blank" rel="noopener noreferrer">Mathematical Entity Extraction</a></h3><p>Extracts definitions, theorems, proofs, and examples from mathematics textbooks using a fine-tuned language model, with evaluation against few-shot baselines.</p><p class="project-methods">LoRA fine-tuning · Structured extraction · Evaluation</p></div><a class="project-code" href="https://github.com/jessica-jh/mathematical_entity_extraction" target="_blank" aria-label="View Mathematical Entity Extraction on GitHub" rel="noopener noreferrer">GitHub ↗</a></article>
+<article class="project"><div><h3><a href="https://github.com/jessica-jh/BioNLP" target="_blank" rel="noopener noreferrer">Biomedical Named Entity Recognition</a></h3><p>Implements a BiLSTM–CRF model with Viterbi decoding for identifying biomedical entities in text.</p><p class="project-methods">PyTorch · Sequence labeling · Biomedical NLP</p></div><a class="project-code" href="https://github.com/jessica-jh/BioNLP" target="_blank" aria-label="View BioNLP on GitHub" rel="noopener noreferrer">GitHub ↗</a></article>
+</div></section><!-- PRESS -->
 <section id="press">
   <h2 class="section-title">Press Coverage</h2>
   <p class="section-subtitle">Selected media on my research</p>
   <div class="press-list">
-    <a class="press-card" href="https://www.hrdive.com/news/instant-paychecks-can-boost-low-income-workers-savings-habits/814325/" target="_blank">
+    <a class="press-card" href="https://www.hrdive.com/news/instant-paychecks-can-boost-low-income-workers-savings-habits/814325/" target="_blank" rel="noopener noreferrer">
       <div class="press-logo">HR<br>Dive</div>
       <div class="press-content">
         <div class="press-source">HR Dive</div>
-        <h3>Instant pay can boost low-income workers&rsquo; savings habits, report finds</h3>
+        <h3>Instant pay can boost low-income workers’ savings habits, report finds</h3>
         <p>Coverage of the ISR paper on how on-demand wage access changes financial engagement among low-wage workers.</p>
       </div>
-      <span class="press-arrow">&rarr;</span>
+      <span class="press-arrow">→</span>
     </a>
-    <a class="press-card" href="https://www.informs.org/News-Room/INFORMS-Releases/News-Releases/Study-Finds-That-On-Demand-Wage-Access-Boosts-Savings-and-Financial-Engagement-for-Low-Wage-Workers" target="_blank">
+    <a class="press-card" href="https://www.informs.org/News-Room/INFORMS-Releases/News-Releases/Study-Finds-That-On-Demand-Wage-Access-Boosts-Savings-and-Financial-Engagement-for-Low-Wage-Workers" target="_blank" rel="noopener noreferrer">
       <div class="press-logo">IN<br>FORMS</div>
       <div class="press-content">
         <div class="press-source">INFORMS</div>
         <h3>Study Finds That On-Demand Wage Access Boosts Savings and Financial Engagement for Low-Wage Workers</h3>
         <p>INFORMS press release on the same Information Systems Research paper.</p>
       </div>
-      <span class="press-arrow">&rarr;</span>
+      <span class="press-arrow">→</span>
     </a>
   </div>
 </section>
@@ -377,21 +285,21 @@ footer p { font-size: 0.8rem; color: var(--text-tertiary); }
     <div class="cv-entry">
       <div class="cv-entry-main">
         <div class="cv-entry-title">M.S. in Natural Language Processing</div>
-        <div class="cv-entry-detail">University of California, Santa Cruz &middot; Dept. of Computer Science and Engineering</div>
+        <div class="cv-entry-detail">University of California, Santa Cruz · Dept. of Computer Science and Engineering</div>
       </div>
       <div class="cv-entry-date">Expected Jan 2027</div>
     </div>
     <div class="cv-entry">
       <div class="cv-entry-main">
         <div class="cv-entry-title">Ph.D. in Information Systems</div>
-        <div class="cv-entry-detail">KAIST &middot; Dept. of Management Engineering &middot; GPA 4.1/4.3</div>
+        <div class="cv-entry-detail">KAIST · Dept. of Management Engineering · GPA 4.1/4.3</div>
       </div>
-      <div class="cv-entry-date">2021&ndash;2025</div>
+      <div class="cv-entry-date">2021–2025</div>
     </div>
     <div class="cv-entry">
       <div class="cv-entry-main">
         <div class="cv-entry-title">B.S. in Mathematics, Highest Distinction</div>
-        <div class="cv-entry-detail">Sogang University &middot; Full Tuition Scholarship</div>
+        <div class="cv-entry-detail">Sogang University · Full Tuition Scholarship</div>
       </div>
       <div class="cv-entry-date"></div>
     </div>
@@ -402,12 +310,12 @@ footer p { font-size: 0.8rem; color: var(--text-tertiary); }
     <div class="cv-entry">
       <div class="cv-entry-main">
         <div class="cv-entry-title">Senior Consultant</div>
-        <div class="cv-entry-detail"><a href="https://www.deloitte.com/us/en/services.html" target="_blank">Deloitte Consulting LLC</a> &middot; Seoul, Korea</div>
+        <div class="cv-entry-detail"><a href="https://www.deloitte.com/us/en/services.html" target="_blank" rel="noopener noreferrer">Deloitte Consulting LLC</a> · Seoul, Korea</div>
         <div class="cv-entry-detail" style="margin-top: 4px; line-height: 1.6;">
           Turned ambiguous, fast-moving business questions into KPI systems and Oracle Cloud dashboards for semiconductor and chemical-industry executives. Built statistical models on 5,000+ employee records to identify productivity and culture drivers, and led HR due diligence for a global e-commerce company's cross-border acquisition.
         </div>
       </div>
-      <div class="cv-entry-date">Jan 2018&ndash;Feb 2021</div>
+      <div class="cv-entry-date">Jan 2018–Feb 2021</div>
     </div>
   </div>
 
@@ -447,26 +355,26 @@ footer p { font-size: 0.8rem; color: var(--text-tertiary); }
     <h3>Teaching Experience</h3>
     <div class="cv-entry">
       <div class="cv-entry-main">
-        <div class="cv-entry-title">Lecturer, Business Analytics (MGMT3024)</div>
-        <div class="cv-entry-detail">Kyung Hee University &middot; 32 students &middot; Eval: 92.67/100</div>
+        <div class="cv-entry-title">Instructor of Record, Business Analytics: Machine Learning with Python</div>
+        <div class="cv-entry-detail">Kyung Hee University · 32 students · Eval: 92.67/100</div>
       </div>
       <div class="cv-entry-date">Spring 2024</div>
     </div>
     <div class="cv-entry">
       <div class="cv-entry-main">
         <div class="cv-entry-title">Guest Lecturer, AI/ML in MIS (Delivered in English)</div>
-        <div class="cv-entry-detail">Kyung Hee University &middot; Introduction to MIS (MGMT2001)</div>
+        <div class="cv-entry-detail">Kyung Hee University · Introduction to MIS (MGMT2001)</div>
       </div>
       <div class="cv-entry-date">Spring &amp; Fall 2024</div>
     </div>
     <div class="cv-entry">
       <div class="cv-entry-main">
         <div class="cv-entry-title">Teaching Assistant (7 courses)</div>
-        <div class="cv-entry-detail">KAIST &middot; MBA/EMBA programs including Database, Financial Big Data, Cloud Computing</div>
+        <div class="cv-entry-detail">KAIST · MBA/EMBA programs including Database, Financial Big Data, Cloud Computing</div>
       </div>
-      <div class="cv-entry-date">2021&ndash;2023</div>
+      <div class="cv-entry-date">2021–2023</div>
     </div>
-  </div>
+  <p class="teaching-interests"><strong>Teaching interests:</strong> Management Information Systems; Business Analytics; Generative AI and NLP; Machine Learning; Database Management; Multi-Agent Systems and AI Security.</p></div>
 
   <div class="cv-section">
     <h3>Honors &amp; Awards</h3>
@@ -475,7 +383,7 @@ footer p { font-size: 0.8rem; color: var(--text-tertiary); }
         <div class="cv-entry-title">Ph.D. Fellowship</div>
         <div class="cv-entry-detail">KAIST</div>
       </div>
-      <div class="cv-entry-date">2021&ndash;2024</div>
+      <div class="cv-entry-date">2021–2024</div>
     </div>
     <div class="cv-entry">
       <div class="cv-entry-main">
@@ -491,14 +399,14 @@ footer p { font-size: 0.8rem; color: var(--text-tertiary); }
       </div>
       <div class="cv-entry-date"></div>
     </div>
-  </div>
+  <div class="cv-entry"><div class="cv-entry-main"><div class="cv-entry-title">Teaching Scholarship</div><div class="cv-entry-detail">Samsung Dreamclass</div></div><div class="cv-entry-date">2015</div></div></div>
 
   <div class="cv-section">
     <h3>Academic Service</h3>
     <div class="cv-entry">
       <div class="cv-entry-main">
         <div class="cv-entry-title">Reviewer</div>
-        <div class="cv-entry-detail">ICIS 2022, 2023, 2024 &middot; CIST 2023, 2025 &middot; PACIS 2023</div>
+        <div class="cv-entry-detail">ICIS 2022–2024 · CIST 2023, 2025 · PACIS 2023 · SemEval at ACL 2026</div>
       </div>
       <div class="cv-entry-date"></div>
     </div>
@@ -508,30 +416,21 @@ footer p { font-size: 0.8rem; color: var(--text-tertiary); }
 
 </main>
 
-<footer><p>&copy; 2026 Jihye (Jessica) Kim</p></footer>
+<footer><p>© 2026 Jihye Kim (Ji Hye Kim) · Updated September 2026</p></footer>
 
 <script>
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 10));
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 10), {passive:true});
 const toggle = document.getElementById('mobileToggle');
 const navLinks = document.getElementById('navLinks');
-toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.style.opacity = '1';
-      e.target.style.transform = 'translateY(0)';
-    }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('section:not(.hero)').forEach(s => {
-  s.style.opacity = '0';
-  s.style.transform = 'translateY(16px)';
-  s.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-  obs.observe(s);
+function closeMenu() { navLinks.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
+toggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', String(open));
 });
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+document.addEventListener('keydown', e => { if(e.key === 'Escape' && navLinks.classList.contains('open')) { closeMenu(); toggle.focus(); } });
+window.matchMedia('(min-width: 701px)').addEventListener('change', e => { if(e.matches) closeMenu(); });
 </script>
 </body>
 </html>

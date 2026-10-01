@@ -5,144 +5,692 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jihye Kim (Ji Hye Kim) | Information Systems &amp; AI</title>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+
 <style>
 :root {
   --font-serif: 'Lora', Georgia, serif;
   --font-sans: 'Lora', Georgia, serif;
   --font-mono: 'JetBrains Mono', monospace;
+
   --bg: #ffffff;
   --bg-alt: #F7F6F3;
+
   --text: #0A0A0A;
   --text-secondary: #1F1F1E;
   --text-tertiary: #4A4A46;
-  --accent: #2B4C7E; --accent-light: #3D6DB5; --accent-bg: #EDF2F8;
+
+  --accent: #2B4C7E;
+  --accent-light: #3D6DB5;
+  --accent-bg: #EDF2F8;
+
   --border: #E0DED8;
-  --tag-bg: #F0EEE9; --tag-text: #3D3D3B;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06); --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
-  --track-ci: #2B4C7E; --track-ci-bg: #EDF2F8; --track-ci-border: #C5D5EA;
-  --track-nlp: #6B4C8E; --track-nlp-bg: #F0EBF5; --track-nlp-border: #D4C5E6;
+
+  --tag-bg: #F0EEE9;
+  --tag-text: #3D3D3B;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+
+  --track-ci: #2B4C7E;
+  --track-ci-bg: #EDF2F8;
+  --track-ci-border: #C5D5EA;
+
+  --track-nlp: #6B4C8E;
+  --track-nlp-bg: #F0EBF5;
+  --track-nlp-border: #D4C5E6;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-body { font-family: var(--font-sans); color: var(--text); background: #fff; line-height: 1.75; -webkit-font-smoothing: antialiased; }
 
-nav { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 100; transition: box-shadow 0.3s; }
-nav.scrolled { box-shadow: var(--shadow-md); }
-.nav-inner { max-width: 900px; margin: 0 auto; padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
-.nav-name { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; color: var(--text); text-decoration: none; }
-.nav-links { display: flex; gap: 8px; }
-.nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); text-decoration: none; padding: 6px 12px; border-radius: 6px; transition: all 0.2s; }
-.nav-links a:hover { color: var(--accent); background: var(--accent-bg); }
-.mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-.mobile-toggle span { display: block; width: 20px; height: 2px; background: var(--text); margin: 4px 0; transition: 0.3s; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-main { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
 
-.hero { padding: 120px 0 60px; display: flex; gap: 48px; align-items: flex-start; }
-.hero-photo { width: 160px; height: 160px; border-radius: 50%; background: var(--bg-alt); border: 3px solid var(--border); flex-shrink: 0; object-fit: cover; }
-.hero-text { flex: 1; }
-.hero-text h1 { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 8px; }
-.hero-affiliation { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.5; }
-.hero-bio { font-size: 0.98rem; color: var(--text-secondary); line-height: 1.85; margin-bottom: 20px; }
-.hero-tracks { display: flex; gap: 8px 18px; margin-bottom: 20px; flex-wrap: wrap; }
-.hero-track-badge { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.02em; color: var(--track-ci); }
-.hero-links { display: flex; gap: 12px; flex-wrap: wrap; }
-.hero-links a { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 500; color: var(--accent); text-decoration: none; padding: 6px 14px; border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s; }
-.hero-links a:hover { background: var(--accent-bg); border-color: var(--accent); }
+body {
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: #fff;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
 
-section { padding: 48px 0; border-top: 1px solid var(--border); }
-.hero { border-top: 0; }
-.section-title { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 8px; }
-.section-subtitle { font-size: 0.9rem; color: var(--text-tertiary); margin-bottom: 32px; }
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  transition: box-shadow 0.3s;
+}
 
-.press-list { display: flex; flex-direction: column; gap: 16px; }
-.press-card { display: flex; gap: 20px; align-items: flex-start; padding: 20px; border: 1px solid var(--border); border-radius: 8px; background: #fff; text-decoration: none; color: inherit; transition: all 0.2s; }
-.press-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); }
-.press-logo { flex-shrink: 0; width: 48px; height: 48px; border-radius: 8px; background: var(--bg-alt); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; color: var(--text-tertiary); text-align: center; line-height: 1.2; }
-.press-content { flex: 1; min-width: 0; }
-.press-source { font-size: 0.78rem; font-weight: 600; color: var(--accent); letter-spacing: 0.04em; margin-bottom: 4px; }
-.press-card h3 { font-family: var(--font-serif); font-size: 0.95rem; font-weight: 600; line-height: 1.4; margin-bottom: 4px; color: var(--text); }
-.press-card p { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.6; }
-.press-arrow { flex-shrink: 0; color: var(--text-tertiary); font-size: 1.1rem; margin-top: 2px; }
+nav.scrolled {
+  box-shadow: var(--shadow-md);
+}
 
-.pub-grid { display: flex; flex-direction: column; }
-.pub-column { display: flex; flex-direction: column; margin-bottom: 40px; }
-.pub-column-header { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 600; padding: 10px 0; margin-bottom: 20px; border-bottom: 2px solid var(--border); color: var(--text); }
-.pub-item { margin-bottom: 28px; padding-left: 16px; border-left: 2px solid var(--border); }
-.pub-title { font-family: var(--font-serif); font-size: 0.98rem; font-weight: 600; line-height: 1.5; margin-bottom: 4px; color: var(--text); overflow-wrap: anywhere; }
-.pub-venue { font-size: 0.84rem; color: var(--text-secondary); font-weight: 500; margin-bottom: 4px; }
-.pub-status { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 4px; margin-left: 8px; }
-.pub-status.review { background: #FFF8E1; color: #765300; }
-.pub-status.prep { background: var(--tag-bg); color: var(--tag-text); }
+.nav-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-a { color: var(--accent); text-underline-offset: 3px; }
-a:focus-visible, button:focus-visible { outline: 3px solid var(--accent-light); outline-offset: 4px; }
-.skip-link { position: fixed; top: -60px; left: 12px; z-index: 200; padding: 8px 14px; background: white; }
-.skip-link:focus { top: 8px; }
-.affiliation-detail { font-size: .8rem; color: var(--text-tertiary); }
-.hero-text { min-width: 0; }
+.nav-name {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.mobile-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text);
+  margin: 4px 0;
+  transition: 0.3s;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.hero {
+  padding: 120px 0 60px;
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.hero-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: var(--bg-alt);
+  border: 3px solid var(--border);
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-text h1 {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.hero-bio {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+
+.hero-tracks {
+  display: flex;
+  gap: 8px 18px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-track-badge {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--track-ci);
+}
+
+.hero-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.hero-links a:hover {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+}
+
+section {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+}
+
+.hero {
+  border-top: 0;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+  margin-bottom: 32px;
+}
+
+.press-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.press-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s;
+}
+
+.press-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+
+.press-logo {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: var(--bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.press-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.press-source {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.press-card h3 {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.press-card p {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.press-arrow {
+  flex-shrink: 0;
+  color: var(--text-tertiary);
+  font-size: 1.1rem;
+  margin-top: 2px;
+}
+
+.pub-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.pub-column {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.pub-column-header {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--border);
+  color: var(--text);
+}
+
+.pub-item {
+  margin-bottom: 28px;
+  padding-left: 16px;
+  border-left: 2px solid var(--border);
+}
+
+.pub-title {
+  font-family: var(--font-serif);
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 4px;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.pub-venue {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.pub-status {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-left: 8px;
+}
+
+.pub-status.review {
+  background: #FFF8E1;
+  color: #765300;
+}
+
+.pub-status.prep {
+  background: var(--tag-bg);
+  color: var(--tag-text);
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent-light);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: -60px;
+  left: 12px;
+  z-index: 200;
+  padding: 8px 14px;
+  background: white;
+}
+
+.skip-link:focus {
+  top: 8px;
+}
+
+.affiliation-detail {
+  font-size: .8rem;
+  color: var(--text-tertiary);
+}
 
 /* Teaching */
-.teaching-lead { border-left: 3px solid var(--accent); padding: 22px 26px; background: var(--bg-alt); margin-bottom: 28px; }
-.teaching-lead h3 { font-family: var(--font-serif); font-size: 1.2rem; margin: 6px 0; }
-.teaching-lead p { margin: 6px 0; font-size: .9rem; color: var(--text-secondary); }
-.teaching-lead .role-label { color: var(--accent); font-weight: 600; font-size: .82rem; }
-.evaluation strong { font-size: 1.15rem; color: var(--text); }
-.evaluation span { color: var(--text-tertiary); }
-.teaching-courses { padding-left: 20px; font-size: .88rem; color: var(--text-secondary); }
-.teaching-courses li { margin: 8px 0; }
-.teaching-interests, .service-note { font-size: .88rem; line-height: 1.8; color: var(--text-secondary); margin-top: 20px; }
+
+.teaching-lead {
+  border-left: 3px solid var(--accent);
+  padding: 22px 26px;
+  background: var(--bg-alt);
+  margin-bottom: 28px;
+}
+
+.teaching-lead h3 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  margin: 6px 0;
+}
+
+.teaching-lead p {
+  margin: 6px 0;
+  font-size: .9rem;
+  color: var(--text-secondary);
+}
+
+.teaching-lead .role-label {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: .82rem;
+}
+
+.evaluation strong {
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+.evaluation span {
+  color: var(--text-tertiary);
+}
+
+.teaching-courses {
+  padding-left: 20px;
+  font-size: .88rem;
+  color: var(--text-secondary);
+}
+
+.teaching-courses li {
+  margin: 8px 0;
+}
+
+.teaching-interests,
+.service-note {
+  font-size: .88rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-top: 20px;
+}
 
 /* Research themes and projects */
-.theme-list { display:grid; grid-template-columns:1fr 1fr; gap:36px; }
-.theme h3,.project h3 { font-family:var(--font-serif);font-size:1.14rem;line-height:1.4;margin-bottom:12px; }
-.theme p,.project p { font-size:.92rem;line-height:1.85;color:var(--text-secondary); }
-.theme .theme-examples,.project .project-methods { font-size:.78rem;margin-top:14px;color:var(--text-tertiary); }
-.project { display:flex; gap:24px;justify-content:space-between; padding:24px 0;border-bottom:1px solid var(--border); }
-.project:first-child { padding-top:0; }
-.project:last-child { border-bottom:0;padding-bottom:0; }
-.project h3 a { color:var(--text);text-decoration:none; }
-.project h3 a:hover { color:var(--accent);text-decoration:underline; }
-.project-code { white-space:nowrap;font-size:.8rem;align-self:flex-start;margin-top:4px; }
 
-.presentation-list { padding-left:20px;margin:0; }
-.presentation-list li { padding-left:4px;margin-bottom:18px;font-size:.86rem;line-height:1.75;color:var(--text-secondary); }
-.presentation-title { color:var(--text); }
-.presentation-venue { font-style:italic; }
-.presentation-link { font-size:.8rem;white-space:nowrap;margin-left:6px; }
+.theme-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
 
-footer { margin-top: 48px; padding: 32px 0; border-top: 1px solid var(--border); text-align: center; }
-footer p { font-size: 0.8rem; color: var(--text-tertiary); }
+.theme h3,
+.project h3 {
+  font-family: var(--font-serif);
+  font-size: 1.14rem;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
 
-.fade-in { opacity: 0; transform: translateY(16px); animation: fadeUp 0.5s ease forwards; }
-@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-.delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; } .delay-3 { animation-delay: 0.3s; }
+.theme p,
+.project p {
+  font-size: .92rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+}
+
+.theme .theme-examples,
+.project .project-methods {
+  font-size: .78rem;
+  margin-top: 14px;
+  color: var(--text-tertiary);
+}
+
+.project {
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.project:first-child {
+  padding-top: 0;
+}
+
+.project:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.project h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.project h3 a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.project-code {
+  white-space: nowrap;
+  font-size: .8rem;
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.presentation-list {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.presentation-list li {
+  padding-left: 4px;
+  margin-bottom: 18px;
+  font-size: .86rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.presentation-title {
+  color: var(--text);
+}
+
+.presentation-venue {
+  font-style: italic;
+}
+
+.presentation-link {
+  font-size: .8rem;
+  white-space: nowrap;
+  margin-left: 6px;
+}
+
+footer {
+  margin-top: 48px;
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+footer p {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.5s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+
+.delay-2 {
+  animation-delay: 0.2s;
+}
+
+.delay-3 {
+  animation-delay: 0.3s;
+}
 
 @media (max-width: 700px) {
-  .hero { flex-direction: column; align-items: center; text-align: center; gap: 24px; padding: 100px 0 40px; }
-  .hero-photo { width: 120px; height: 120px; }
-  .hero-links, .hero-tracks { justify-content: center; }
-  .hero-text { width: 100%; }
-  .hero-bio { text-align: left; }
-  .hero-text h1 { font-size: 1.7rem; }
-  .nav-links { display: none; }
-  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background: rgba(250,250,248,0.98); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 16px 24px; gap: 4px; }
-  .mobile-toggle { display: block; }
-  .theme-list { grid-template-columns:1fr; gap:28px; }
-  .project { flex-direction:column; gap:10px; }
-  .teaching-lead { padding: 18px; }
-  .pub-status { margin-left: 0; }
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+    padding: 100px 0 40px;
+  }
+
+  .hero-photo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .hero-links,
+  .hero-tracks {
+    justify-content: center;
+  }
+
+  .hero-text {
+    width: 100%;
+  }
+
+  .hero-bio {
+    text-align: left;
+  }
+
+  .hero-text h1 {
+    font-size: 1.7rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: rgba(250,250,248,0.98);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    gap: 4px;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  .theme-list {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .project {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .teaching-lead {
+    padding: 18px;
+  }
+
+  .pub-status {
+    margin-left: 0;
+  }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } .fade-in { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .fade-in {
+    opacity: 1;
+    transform: none;
+  }
+}
 </style>
-<meta name="description" content="Jihye Kim studies how technology changes the way people and organizations make decisions, from technologies that reshape the decision environment to AI systems that take part in decisions.">
+
+<meta
+  name="description"
+  content="Jihye Kim studies how technology changes the way people and organizations make decisions, from technologies that reshape the decision environment to AI systems that take part in decisions."
+>
 </head>
+
 <body>
 
 <a class="skip-link" href="#main">Skip to content</a>
+
 <nav id="nav">
   <div class="nav-inner">
     <a href="#" class="nav-name">Jihye Kim</a>
+
     <div class="nav-links" id="navLinks">
       <a href="#about">About</a>
       <a href="#research-themes">Research</a>
@@ -150,8 +698,17 @@ footer p { font-size: 0.8rem; color: var(--text-tertiary); }
       <a href="#teaching">Teaching</a>
       <a href="#projects">Projects</a>
     </div>
-    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu" aria-controls="navLinks" aria-expanded="false">
-      <span></span><span></span><span></span>
+
+    <button
+      class="mobile-toggle"
+      id="mobileToggle"
+      aria-label="Menu"
+      aria-controls="navLinks"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
   </div>
 </nav>
@@ -159,154 +716,705 @@ footer p { font-size: 0.8rem; color: var(--text-tertiary); }
 <main id="main">
 
 <!-- ABOUT -->
+
 <section class="hero" id="about" aria-labelledby="name">
-  <img class="hero-photo fade-in" src="profile.jpg" alt="Jihye Kim (Ji Hye Kim)">
+  <img
+    class="hero-photo fade-in"
+    src="profile.jpg"
+    alt="Jihye Kim (Ji Hye Kim)"
+  >
+
   <div class="hero-text">
-    <h1 class="fade-in delay-1" id="name">Jihye Kim (Ji Hye Kim)</h1>
-    <div class="hero-affiliation fade-in delay-2">
-      <strong>Ph.D. in Management Engineering (Information Systems), KAIST</strong><br>
-      <strong>M.S. in Natural Language Processing, UC Santa Cruz · In progress</strong>
-    </div>
-    <p class="hero-bio fade-in delay-2">My research examines how technology changes the way people and organizations make decisions. I first studied technologies that reshape the environment in which people and firms decide. I now study AI systems that take part in decisions themselves, and how people and organizations come to rely on them.</p>
-    <p class="hero-bio fade-in delay-2">Before my Ph.D., I spent three years at Deloitte Consulting in Seoul as a management consultant on digital transformation, analytics, and organizational strategy.</p>
+    <h1 class="fade-in delay-1" id="name">
+      Jihye Kim (Ji Hye Kim)
+    </h1>
+
+    <p class="hero-bio fade-in delay-2">
+      I am Jihye Kim. I received my Ph.D. in Information Systems from the Department of Management Engineering at KAIST, where I was advised by Wonseok Oh. I am currently pursuing an additional M.S. in Natural Language Processing in the Department of Computer Science and Engineering at UC Santa Cruz to deepen my technical expertise in large language models and AI agents.
+    </p>
+
+    <p class="hero-bio fade-in delay-2">
+      Before my Ph.D., I worked as a Senior Consultant at Deloitte Consulting, where I focused on digital transformation, analytics, and organizational strategy.
+    </p>
+
     <div class="hero-links fade-in delay-3">
       <a href="mailto:jihye.jkim@gmail.com">✉ Email</a>
-      <a href="https://www.linkedin.com/in/jihyekimphd/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="https://github.com/jessica-jh" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://scholar.google.com/citations?user=53q-JWUAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+      <a
+        href="https://www.linkedin.com/in/jihyekimphd/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn
+      </a>
+      <a
+        href="https://github.com/jessica-jh"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub
+      </a>
+      <a
+        href="https://scholar.google.com/citations?user=53q-JWUAAAAJ&amp;hl=en"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Google Scholar
+      </a>
     </div>
   </div>
 </section>
 
 <!-- RESEARCH THEMES -->
+
 <section id="research-themes" aria-labelledby="themes-title">
-  <h2 class="section-title" id="themes-title" style="margin-bottom:28px">Research Themes</h2>
+  <h2
+    class="section-title"
+    id="themes-title"
+    style="margin-bottom:28px"
+  >
+    Research Themes
+  </h2>
+
   <div class="theme-list">
     <article class="theme">
       <h3>Reshaping the Decision Environment</h3>
-      <p>Some technologies shape decisions without making them: they change when people can act, which options stand out, and how choices are made. I study these shifts in fintech, platform governance, and service automation, using causal inference on large-scale behavioral data. A recurring pattern in my work is that the gains and burdens of the same technology fall unevenly across users, firms, and their partners, and that design choices, such as fee structures and interface layouts, shape who benefits.</p>
-      <p class="theme-examples">Economics of Information Systems · Digital Platforms · Causal Inference</p>
+
+      <p>
+        Some technologies shape decisions without making them: they change when people can act, which options stand out, and how choices are made. I study these shifts in fintech, platform governance, and service automation, using causal inference on large-scale behavioral data. A recurring pattern in my work is that the gains and burdens of the same technology fall unevenly across users, firms, and their partners, and that design choices, such as fee structures and interface layouts, shape who benefits.
+      </p>
+
+      <p class="theme-examples">
+        Economics of Information Systems · Digital Platforms · Causal Inference
+      </p>
     </article>
+
     <article class="theme">
       <h3>AI in the Decision Loop</h3>
-      <p>As AI systems give advice, negotiate, and act on users’ behalf, they take part in decisions rather than only informing them. I build diagnostics for how these systems fail in such roles. Across nine language models, I find that models separate helpful from misleading pushback on factual questions but follow both at nearly equal rates on moral ones, a failure mode I term direction-blind moral compliance. In negotiation agents, I show that filtering coercive outputs opens a deceptive bypass: agents stop coercing but begin misrepresenting their own priorities. I am extending this work to study how people come to rely on AI systems and what that reliance means for organizations.</p>
-      <p class="theme-examples">AI Evaluation · Multi-Agent Systems · Human–AI Decision-Making</p>
+
+      <p>
+        As AI systems give advice, negotiate, and act on users’ behalf, they take part in decisions rather than only informing them. I build diagnostics for how these systems fail in such roles. Across nine language models, I find that models separate helpful from misleading pushback on factual questions but follow both at nearly equal rates on moral ones, a failure mode I term direction-blind moral compliance. In negotiation agents, I show that filtering coercive outputs opens a deceptive bypass: agents stop coercing but begin misrepresenting their own priorities. I am extending this work to study how people come to rely on AI systems and what that reliance means for organizations.
+      </p>
+
+      <p class="theme-examples">
+        AI Evaluation · Multi-Agent Systems · Human–AI Decision-Making
+      </p>
     </article>
   </div>
 </section>
 
 <!-- PAPERS -->
+
 <section id="publications">
-  <h2 class="section-title">Papers &amp; Ongoing Work</h2>
-  <p class="section-subtitle">Published work, working papers, and ongoing projects. * First author; † equal contribution.</p>
+  <h2 class="section-title">
+    Papers &amp; Ongoing Work
+  </h2>
+
+  <p class="section-subtitle">
+    Published work, working papers, and ongoing projects. * First author; † equal contribution.
+  </p>
+
   <div class="pub-grid">
 
-    <div class="pub-column"><h3 class="pub-column-header">Journal Articles</h3><ul class="presentation-list">
-      <li><span class="presentation-authors"><strong>Jihye Kim*</strong>, Seokchae Yoon, Sunghun Chung, Wonseok Oh</span>. <span class="presentation-title">Working Daily, Paid Monthly? Effects of On-Demand Wage Access on the Financial Engagement of Low-Wage Workers</span>. <span class="presentation-venue">Information Systems Research (UTD24, FT50) · Articles in Advance</span>. <a class="presentation-link" href="https://doi.org/10.1287/isre.2023.0673" target="_blank" rel="noopener noreferrer">Journal</a> <a class="presentation-link" href="https://www.cfodive.com/news/instant-paychecks-can-boost-low-income-workers-savings-habits-report-find/814220/" target="_blank" rel="noopener noreferrer">Media</a></li>
-    </ul></div>
+    <div class="pub-column">
+      <h3 class="pub-column-header">
+        Journal Articles
+      </h3>
 
-    <div class="pub-column"><h3 class="pub-column-header">Working Papers &amp; Preprints</h3><ul class="presentation-list">
-      <li><span class="presentation-authors"><strong>Jihye Kim*</strong>, Seokchae Yoon, Anindya Ghose, Wonseok Oh</span>. <span class="presentation-title">Beyond Efficiency: The Impact of Self-Order Kiosk Adoption on Demand Variety</span>. <span class="presentation-venue">Working paper</span>.</li>
-      <li><span class="presentation-authors"><strong>Jihye Kim*</strong>, Jeffrey Flanigan</span>. <span class="presentation-title">Right or Wrong, Models Comply: Directional Blindness in LLM Moral Judgment</span>. <span class="presentation-venue">arXiv preprint · 2026</span>. <a class="presentation-link" href="https://arxiv.org/abs/2606.14037" target="_blank" rel="noopener noreferrer">arXiv</a></li>
-      <li><span class="presentation-authors"><strong>Jihye Kim*</strong>, Umit Azirakhmet, Xuefang Yang</span>. <span class="presentation-title">Optimizing Verbal Calibration: Structural Prompting Reducing Confidence Error in LLMs</span>. <span class="presentation-venue">Working paper</span>.</li>
-    </ul></div>
-
-    <div class="pub-column"><h3 class="pub-column-header">Refereed Conference &amp; Workshop Papers (Proceedings)</h3><ul class="presentation-list">
-      <li><span class="presentation-authors"><strong>Jihye Kim*</strong> (Single Author)</span>. <span class="presentation-title">Coercion Suppression Increases Preference Hallucinations via a Deceptive Bypass in K-Level Negotiation Agents</span>. <span class="presentation-venue">6th Workshop on Trustworthy NLP (TrustNLP) at ACL 2026</span>. <a class="presentation-link" href="https://github.com/jessica-jh/socially-aligned-strategic-agents" target="_blank" rel="noopener noreferrer">GitHub</a> <a class="presentation-link" href="https://aclanthology.org/2026.trustnlp-main.17/" target="_blank" rel="noopener noreferrer">Paper</a></li>
-      <li><span class="presentation-authors">Pratibha Revankar, <strong>Jihye Kim</strong>, Umit Azirakhmet</span>. <span class="presentation-title">SlugRAG at SemEval-2026 Task 8: Domain-Specific Fine-Tuning and Model Scaling for Multi-Turn RAG Retrieval</span>. <span class="presentation-venue">SemEval at ACL 2026</span>. <a class="presentation-link" href="https://aclanthology.org/2026.semeval-1.135/" target="_blank" rel="noopener noreferrer">Paper</a></li>
-      <li><span class="presentation-authors">Yoonha Park, <strong>Jihye Kim</strong>, Kyumin Lee, Wonseok Oh</span>. <span class="presentation-title">The Information Billboard: Effects of Popular Search Terms on Search Behaviors and Digital Divide</span>. <span class="presentation-venue">57th Hawaii International Conference on System Sciences (HICSS 2024) · Jan 2024</span>. <a class="presentation-link" href="https://scholarspace.manoa.hawaii.edu/server/api/core/bitstreams/2b5238a1-0bed-4fb8-a37b-14da0267ba98/content" target="_blank" rel="noopener noreferrer">Paper</a></li>
-    </ul></div>
-
-    <div class="pub-column"><h3 class="pub-column-header">Refereed Conference &amp; Workshop Papers (Non-archival)</h3><ul class="presentation-list">
-      <li><span class="presentation-authors">Pratibha Revankar, Kargi Chauhan, <strong>Jihye Kim</strong>, Sadiba Nusrat Nur, Vincent Siu, Chenguang Wang</span>. <span class="presentation-title">MIRAGE: A Polarity-Flipping Encoding Subspace in LLM Agents</span>. <span class="presentation-venue">2nd Workshop on Agents in the Wild (AIWILD) at ICML 2026</span> <a class="presentation-link" href="https://openreview.net/pdf?id=KAtYLnOoo9" target="_blank" rel="noopener noreferrer">Paper</a></li>
-      <li><span class="presentation-authors"><strong>Jihye Kim*</strong>, Seokchae Yoon</span>. <span class="presentation-title">Could Self-Order Kiosks Drive Unequal Sales Variety?</span>. <span class="presentation-venue">35th Workshop on Information Systems and Economics (WISE 2024) · Bangkok · Dec 2024</span> <a class="presentation-link" href="https://drive.google.com/file/d/132DUcgQ9WhRwKKtXUqO4Uz0UA88s98xV/view?usp=sharing" target="_blank" rel="noopener noreferrer">Slides</a></li>
-      <li><span class="presentation-authors"><strong>Jihye Kim*</strong>, Seokchae Yoon, Sunghun Chung</span>. <span class="presentation-title">Working Daily, Paid Monthly? Effects of On-Demand Earned Wage Access on the Financial Well-Being of Low-Wage Workers</span>. <span class="presentation-venue">Conference on Information Systems and Technology (CIST 2023) · Phoenix, AZ · October 2023</span> <a class="presentation-link" href="https://drive.google.com/file/d/1btpQQvjxebylYYsN1O2W6h39BNpcK3Ou/view?usp=sharing" target="_blank" rel="noopener noreferrer">Slides</a></li>
-      <li><span class="presentation-authors"><strong>Jihye Kim*</strong>, Hyeokkoo Eric Kwon, Kun Shin Im, Wonseok Oh</span>. <span class="presentation-title">In-App Payment Regulation and Platform Governance</span>. <span class="presentation-venue">KrAIS Summer Workshop 2023 · Seoul · Jul 2023</span></li>
-      <li><span class="presentation-authors"><strong>Jihye Kim*</strong>, Seokchae Yoon, Sunghun Chung, Wonseok Oh</span>. <span class="presentation-title">On-Demand Earned Wage Access and Financial Well-Being of Low-Wage Workers</span>. <span class="presentation-venue">Marketing Science: Diversity, Equity &amp; Inclusion Conference (MSI DEI 2023) · Dallas, TX · Mar 2023</span></li>
-      <li><span class="presentation-authors"><strong>Jihye Kim*</strong>, Hyeokkoo Eric Kwon, Kun Shin Im, Wonseok Oh</span>. <span class="presentation-title">The Economics of In-App Payment Options</span>. <span class="presentation-venue">Conference on Information Systems and Technology (CIST 2022) · Indianapolis, IN · October 2022</span> <a class="presentation-link" href="https://drive.google.com/file/d/1Z9gWQhSY7RxFynaXp5gmJ5c5EJsEOGWS/view?usp=sharing" target="_blank" rel="noopener noreferrer">Slides</a></li>
-    </ul></div>
-
-    <div class="pub-column"><h3 class="pub-column-header">Research Under Review</h3>
-      <p class="section-subtitle">To preserve confidentiality during peer review, the entries below use general descriptive labels rather than actual manuscript titles.</p>
-      <div class="pub-item"><div class="pub-title">Platform Governance and Competition in Digital Markets <span class="pub-status review">Under 2nd-round review</span></div><div class="pub-venue">Journal of Management Information Systems</div></div>
-      <div class="pub-item"><div class="pub-title">Evaluating Relational Behavior in Conversational AI <span class="pub-status review">Under review</span></div><div class="pub-venue">ICLR 2027 · Main Conference</div></div>
+      <ul class="presentation-list">
+        <li>
+          <span class="presentation-authors">
+            <strong>Jihye Kim*</strong>, Seokchae Yoon, Sunghun Chung, Wonseok Oh
+          </span>.
+          <span class="presentation-title">
+            Working Daily, Paid Monthly? Effects of On-Demand Wage Access on the Financial Engagement of Low-Wage Workers
+          </span>.
+          <span class="presentation-venue">
+            Information Systems Research (UTD24, FT50) · Articles in Advance
+          </span>.
+          <a
+            class="presentation-link"
+            href="https://doi.org/10.1287/isre.2023.0673"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Journal
+          </a>
+          <a
+            class="presentation-link"
+            href="https://www.cfodive.com/news/instant-paychecks-can-boost-low-income-workers-savings-habits-report-find/814220/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Media
+          </a>
+        </li>
+      </ul>
     </div>
 
-    <div class="pub-column"><h3 class="pub-column-header">Research in Progress</h3>
-      <div class="pub-item"><div class="pub-title">Benchmarking Data Security Failures in Enterprise Multi-Agent LLM Systems <span class="pub-status prep">In progress</span></div><div class="pub-venue">Ongoing research at UC Santa Cruz in collaboration with Uniphore</div></div>
+    <div class="pub-column">
+      <h3 class="pub-column-header">
+        Working Papers &amp; Preprints
+      </h3>
+
+      <ul class="presentation-list">
+        <li>
+          <span class="presentation-authors">
+            <strong>Jihye Kim*</strong>, Seokchae Yoon, Anindya Ghose, Wonseok Oh
+          </span>.
+          <span class="presentation-title">
+            Beyond Efficiency: The Impact of Self-Order Kiosk Adoption on Demand Variety
+          </span>.
+          <span class="presentation-venue">
+            Working paper
+          </span>.
+        </li>
+
+        <li>
+          <span class="presentation-authors">
+            <strong>Jihye Kim*</strong>, Jeffrey Flanigan
+          </span>.
+          <span class="presentation-title">
+            Right or Wrong, Models Comply: Directional Blindness in LLM Moral Judgment
+          </span>.
+          <span class="presentation-venue">
+            arXiv preprint · 2026
+          </span>.
+          <a
+            class="presentation-link"
+            href="https://arxiv.org/abs/2606.14037"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            arXiv
+          </a>
+        </li>
+
+        <li>
+          <span class="presentation-authors">
+            <strong>Jihye Kim*</strong>, Umit Azirakhmet, Xuefang Yang
+          </span>.
+          <span class="presentation-title">
+            Optimizing Verbal Calibration: Structural Prompting Reducing Confidence Error in LLMs
+          </span>.
+          <span class="presentation-venue">
+            Working paper
+          </span>.
+        </li>
+      </ul>
+    </div>
+
+    <div class="pub-column">
+      <h3 class="pub-column-header">
+        Refereed Conference &amp; Workshop Papers (Proceedings)
+      </h3>
+
+      <ul class="presentation-list">
+        <li>
+          <span class="presentation-authors">
+            <strong>Jihye Kim*</strong> (Single Author)
+          </span>.
+          <span class="presentation-title">
+            Coercion Suppression Increases Preference Hallucinations via a Deceptive Bypass in K-Level Negotiation Agents
+          </span>.
+          <span class="presentation-venue">
+            6th Workshop on Trustworthy NLP (TrustNLP) at ACL 2026
+          </span>.
+          <a
+            class="presentation-link"
+            href="https://github.com/jessica-jh/socially-aligned-strategic-agents"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+          <a
+            class="presentation-link"
+            href="https://aclanthology.org/2026.trustnlp-main.17/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Paper
+          </a>
+        </li>
+
+        <li>
+          <span class="presentation-authors">
+            Pratibha Revankar, <strong>Jihye Kim</strong>, Umit Azirakhmet
+          </span>.
+          <span class="presentation-title">
+            SlugRAG at SemEval-2026 Task 8: Domain-Specific Fine-Tuning and Model Scaling for Multi-Turn RAG Retrieval
+          </span>.
+          <span class="presentation-venue">
+            SemEval at ACL 2026
+          </span>.
+          <a
+            class="presentation-link"
+            href="https://aclanthology.org/2026.semeval-1.135/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Paper
+          </a>
+        </li>
+
+        <li>
+          <span class="presentation-authors">
+            Yoonha Park, <strong>Jihye Kim</strong>, Kyumin Lee, Wonseok Oh
+          </span>.
+          <span class="presentation-title">
+            The Information Billboard: Effects of Popular Search Terms on Search Behaviors and Digital Divide
+          </span>.
+          <span class="presentation-venue">
+            57th Hawaii International Conference on System Sciences (HICSS 2024) · Jan 2024
+          </span>.
+          <a
+            class="presentation-link"
+            href="https://scholarspace.manoa.hawaii.edu/server/api/core/bitstreams/2b5238a1-0bed-4fb8-a37b-14da0267ba98/content"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Paper
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="pub-column">
+      <h3 class="pub-column-header">
+        Refereed Conference &amp; Workshop Papers (Non-archival)
+      </h3>
+
+      <ul class="presentation-list">
+        <li>
+          <span class="presentation-authors">
+            Pratibha Revankar, Kargi Chauhan, <strong>Jihye Kim</strong>, Sadiba Nusrat Nur, Vincent Siu, Chenguang Wang
+          </span>.
+          <span class="presentation-title">
+            MIRAGE: A Polarity-Flipping Encoding Subspace in LLM Agents
+          </span>.
+          <span class="presentation-venue">
+            2nd Workshop on Agents in the Wild (AIWILD) at ICML 2026
+          </span>
+          <a
+            class="presentation-link"
+            href="https://openreview.net/pdf?id=KAtYLnOoo9"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Paper
+          </a>
+        </li>
+
+        <li>
+          <span class="presentation-authors">
+            <strong>Jihye Kim*</strong>, Seokchae Yoon
+          </span>.
+          <span class="presentation-title">
+            Could Self-Order Kiosks Drive Unequal Sales Variety?
+          </span>.
+          <span class="presentation-venue">
+            35th Workshop on Information Systems and Economics (WISE 2024) · Bangkok · Dec 2024
+          </span>
+          <a
+            class="presentation-link"
+            href="https://drive.google.com/file/d/132DUcgQ9WhRwKKtXUqO4Uz0UA88s98xV/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Slides
+          </a>
+        </li>
+
+        <li>
+          <span class="presentation-authors">
+            <strong>Jihye Kim*</strong>, Seokchae Yoon, Sunghun Chung
+          </span>.
+          <span class="presentation-title">
+            Working Daily, Paid Monthly? Effects of On-Demand Earned Wage Access on the Financial Well-Being of Low-Wage Workers
+          </span>.
+          <span class="presentation-venue">
+            Conference on Information Systems and Technology (CIST 2023) · Phoenix, AZ · October 2023
+          </span>
+          <a
+            class="presentation-link"
+            href="https://drive.google.com/file/d/1btpQQvjxebylYYsN1O2W6h39BNpcK3Ou/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Slides
+          </a>
+        </li>
+
+        <li>
+          <span class="presentation-authors">
+            <strong>Jihye Kim*</strong>, Hyeokkoo Eric Kwon, Kun Shin Im, Wonseok Oh
+          </span>.
+          <span class="presentation-title">
+            In-App Payment Regulation and Platform Governance
+          </span>.
+          <span class="presentation-venue">
+            KrAIS Summer Workshop 2023 · Seoul · Jul 2023
+          </span>
+        </li>
+
+        <li>
+          <span class="presentation-authors">
+            <strong>Jihye Kim*</strong>, Seokchae Yoon, Sunghun Chung, Wonseok Oh
+          </span>.
+          <span class="presentation-title">
+            On-Demand Earned Wage Access and Financial Well-Being of Low-Wage Workers
+          </span>.
+          <span class="presentation-venue">
+            Marketing Science: Diversity, Equity &amp; Inclusion Conference (MSI DEI 2023) · Dallas, TX · Mar 2023
+          </span>
+        </li>
+
+        <li>
+          <span class="presentation-authors">
+            <strong>Jihye Kim*</strong>, Hyeokkoo Eric Kwon, Kun Shin Im, Wonseok Oh
+          </span>.
+          <span class="presentation-title">
+            The Economics of In-App Payment Options
+          </span>.
+          <span class="presentation-venue">
+            Conference on Information Systems and Technology (CIST 2022) · Indianapolis, IN · October 2022
+          </span>
+          <a
+            class="presentation-link"
+            href="https://drive.google.com/file/d/1Z9gWQhSY7RxFynaXp5gmJ5c5EJsEOGWS/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Slides
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="pub-column">
+      <h3 class="pub-column-header">
+        Research Under Review
+      </h3>
+
+      <p class="section-subtitle">
+        To preserve confidentiality during peer review, the entries below use general descriptive labels rather than actual manuscript titles.
+      </p>
+
+      <div class="pub-item">
+        <div class="pub-title">
+          Platform Governance and Competition in Digital Markets
+          <span class="pub-status review">
+            Under 2nd-round review
+          </span>
+        </div>
+
+        <div class="pub-venue">
+          Journal of Management Information Systems
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">
+          Evaluating Relational Behavior in Conversational AI
+          <span class="pub-status review">
+            Under review
+          </span>
+        </div>
+
+        <div class="pub-venue">
+          ICLR 2027 · Main Conference
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-column">
+      <h3 class="pub-column-header">
+        Research in Progress
+      </h3>
+
+      <div class="pub-item">
+        <div class="pub-title">
+          Benchmarking Data Security Failures in Enterprise Multi-Agent LLM Systems
+          <span class="pub-status prep">
+            In progress
+          </span>
+        </div>
+
+        <div class="pub-venue">
+          Ongoing research at UC Santa Cruz in collaboration with Uniphore
+        </div>
+      </div>
     </div>
 
   </div>
 </section>
 
 <!-- TEACHING -->
+
 <section id="teaching" aria-labelledby="teaching-title">
-  <h2 class="section-title" id="teaching-title">Teaching</h2>
-  <p class="section-subtitle">Courses taught and service</p>
+  <h2 class="section-title" id="teaching-title">
+    Teaching
+  </h2>
+
+  <p class="section-subtitle">
+    Courses taught and service
+  </p>
 
   <ul class="teaching-courses">
-    <li><strong>Instructor of Record</strong>, Business Analytics: Machine Learning with Python, Kyung Hee University, Spring 2024. Designed and taught the full-semester course as sole instructor (32 students; student evaluation 92.67/100)</li>
-    <li><strong>Guest Lecturer</strong>, AI/ML in MIS (delivered in English), Introduction to MIS, Kyung Hee University, Spring &amp; Fall 2024</li>
-    <li><strong>Teaching Assistant</strong>, 7 courses in the KAIST MBA/EMBA programs, including Database, Financial Big Data, and Cloud Computing, 2021–2023</li>
+    <li>
+      <strong>Instructor of Record</strong>, Business Analytics: Machine Learning with Python, Kyung Hee University, Spring 2024. Designed and taught the full-semester course as sole instructor (32 students; student evaluation 92.67/100)
+    </li>
+
+    <li>
+      <strong>Guest Lecturer</strong>, AI/ML in MIS (delivered in English), Introduction to MIS, Kyung Hee University, Spring &amp; Fall 2024
+    </li>
+
+    <li>
+      <strong>Teaching Assistant</strong>, 7 courses in the KAIST MBA/EMBA programs, including Database, Financial Big Data, and Cloud Computing, 2021–2023
+    </li>
   </ul>
 
-  <p class="service-note"><strong>Service:</strong> Reviewer for the TAE Workshop at NeurIPS (2026), SemEval at ACL (2026), ICIS (2022–2024), CIST (2023, 2025), and PACIS (2023).</p>
+  <p class="service-note">
+    <strong>Service:</strong> Reviewer for the TAE Workshop at NeurIPS (2026), SemEval at ACL (2026), ICIS (2022–2024), CIST (2023, 2025), and PACIS (2023).
+  </p>
 </section>
 
 <!-- PROJECTS -->
+
 <section id="projects" aria-labelledby="projects-title">
-  <h2 class="section-title" id="projects-title">Selected Open-Source Projects</h2>
-  <p class="section-subtitle">Tools and implementations for working with evidence and extracting information from text.</p>
+  <h2 class="section-title" id="projects-title">
+    Selected Open-Source Projects
+  </h2>
+
+  <p class="section-subtitle">
+    Tools and implementations for working with evidence and extracting information from text.
+  </p>
+
   <div class="project-list">
-    <article class="project"><div><h3><a href="https://github.com/jessica-jh/Sourcerer" target="_blank" rel="noopener noreferrer">Sourcerer</a></h3><p>Searches a personal PDF library for passages that support a claim, combining semantic retrieval, reranking, and evidence assessment with section-level source references.</p><p class="project-methods">Semantic search · Reranking · Evidence attribution</p></div><a class="project-code" href="https://github.com/jessica-jh/Sourcerer" target="_blank" aria-label="View Sourcerer on GitHub" rel="noopener noreferrer">GitHub ↗</a></article>
-    <article class="project"><div><h3><a href="https://github.com/jessica-jh/mathematical_entity_extraction" target="_blank" rel="noopener noreferrer">Mathematical Entity Extraction</a></h3><p>Extracts definitions, theorems, proofs, and examples from mathematics textbooks using a fine-tuned language model, with evaluation against few-shot baselines.</p><p class="project-methods">LoRA fine-tuning · Structured extraction · Evaluation</p></div><a class="project-code" href="https://github.com/jessica-jh/mathematical_entity_extraction" target="_blank" aria-label="View Mathematical Entity Extraction on GitHub" rel="noopener noreferrer">GitHub ↗</a></article>
-    <article class="project"><div><h3><a href="https://github.com/jessica-jh/BioNLP" target="_blank" rel="noopener noreferrer">Biomedical Named Entity Recognition</a></h3><p>Implements a BiLSTM–CRF model with Viterbi decoding for identifying biomedical entities in text.</p><p class="project-methods">PyTorch · Sequence labeling · Biomedical NLP</p></div><a class="project-code" href="https://github.com/jessica-jh/BioNLP" target="_blank" aria-label="View BioNLP on GitHub" rel="noopener noreferrer">GitHub ↗</a></article>
+
+    <article class="project">
+      <div>
+        <h3>
+          <a
+            href="https://github.com/jessica-jh/Sourcerer"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Sourcerer
+          </a>
+        </h3>
+
+        <p>
+          Searches a personal PDF library for passages that support a claim, combining semantic retrieval, reranking, and evidence assessment with section-level source references.
+        </p>
+
+        <p class="project-methods">
+          Semantic search · Reranking · Evidence attribution
+        </p>
+      </div>
+
+      <a
+        class="project-code"
+        href="https://github.com/jessica-jh/Sourcerer"
+        target="_blank"
+        aria-label="View Sourcerer on GitHub"
+        rel="noopener noreferrer"
+      >
+        GitHub ↗
+      </a>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>
+          <a
+            href="https://github.com/jessica-jh/mathematical_entity_extraction"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Mathematical Entity Extraction
+          </a>
+        </h3>
+
+        <p>
+          Extracts definitions, theorems, proofs, and examples from mathematics textbooks using a fine-tuned language model, with evaluation against few-shot baselines.
+        </p>
+
+        <p class="project-methods">
+          LoRA fine-tuning · Structured extraction · Evaluation
+        </p>
+      </div>
+
+      <a
+        class="project-code"
+        href="https://github.com/jessica-jh/mathematical_entity_extraction"
+        target="_blank"
+        aria-label="View Mathematical Entity Extraction on GitHub"
+        rel="noopener noreferrer"
+      >
+        GitHub ↗
+      </a>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>
+          <a
+            href="https://github.com/jessica-jh/BioNLP"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Biomedical Named Entity Recognition
+          </a>
+        </h3>
+
+        <p>
+          Implements a BiLSTM–CRF model with Viterbi decoding for identifying biomedical entities in text.
+        </p>
+
+        <p class="project-methods">
+          PyTorch · Sequence labeling · Biomedical NLP
+        </p>
+      </div>
+
+      <a
+        class="project-code"
+        href="https://github.com/jessica-jh/BioNLP"
+        target="_blank"
+        aria-label="View Biomedical Named Entity Recognition on GitHub"
+        rel="noopener noreferrer"
+      >
+        GitHub ↗
+      </a>
+    </article>
+
   </div>
 </section>
 
 <!-- PRESS -->
+
 <section id="press">
-  <h2 class="section-title">Press Coverage</h2>
-  <p class="section-subtitle">Selected media on my research</p>
+  <h2 class="section-title">
+    Press Coverage
+  </h2>
+
+  <p class="section-subtitle">
+    Selected media on my research
+  </p>
+
   <div class="press-list">
-    <a class="press-card" href="https://www.hrdive.com/news/instant-paychecks-can-boost-low-income-workers-savings-habits/814325/" target="_blank" rel="noopener noreferrer">
-      <div class="press-logo">HR<br>Dive</div>
-      <div class="press-content">
-        <div class="press-source">HR Dive</div>
-        <h3>Instant pay can boost low-income workers’ savings habits, report finds</h3>
-        <p>Coverage of the ISR paper on how on-demand wage access changes financial engagement among low-wage workers.</p>
+
+    <a
+      class="press-card"
+      href="https://www.hrdive.com/news/instant-paychecks-can-boost-low-income-workers-savings-habits/814325/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="press-logo">
+        HR<br>Dive
       </div>
-      <span class="press-arrow">→</span>
-    </a>
-    <a class="press-card" href="https://www.informs.org/News-Room/INFORMS-Releases/News-Releases/Study-Finds-That-On-Demand-Wage-Access-Boosts-Savings-and-Financial-Engagement-for-Low-Wage-Workers" target="_blank" rel="noopener noreferrer">
-      <div class="press-logo">IN<br>FORMS</div>
+
       <div class="press-content">
-        <div class="press-source">INFORMS</div>
-        <h3>Study Finds That On-Demand Wage Access Boosts Savings and Financial Engagement for Low-Wage Workers</h3>
-        <p>INFORMS press release on the same Information Systems Research paper.</p>
+        <div class="press-source">
+          HR Dive
+        </div>
+
+        <h3>
+          Instant pay can boost low-income workers’ savings habits, report finds
+        </h3>
+
+        <p>
+          Coverage of the ISR paper on how on-demand wage access changes financial engagement among low-wage workers.
+        </p>
       </div>
-      <span class="press-arrow">→</span>
+
+      <span class="press-arrow">
+        →
+      </span>
     </a>
+
+    <a
+      class="press-card"
+      href="https://www.informs.org/News-Room/INFORMS-Releases/News-Releases/Study-Finds-That-On-Demand-Wage-Access-Boosts-Savings-and-Financial-Engagement-for-Low-Wage-Workers"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="press-logo">
+        IN<br>FORMS
+      </div>
+
+      <div class="press-content">
+        <div class="press-source">
+          INFORMS
+        </div>
+
+        <h3>
+          Study Finds That On-Demand Wage Access Boosts Savings and Financial Engagement for Low-Wage Workers
+        </h3>
+
+        <p>
+          INFORMS press release on the same Information Systems Research paper.
+        </p>
+      </div>
+
+      <span class="press-arrow">
+        →
+      </span>
+    </a>
+
   </div>
 </section>
 
 </main>
 
-<footer><p>© 2026 Jihye Kim (Ji Hye Kim) · Updated September 2026</p></footer>
+<footer>
+  <p>
+    © 2026 Jihye Kim (Ji Hye Kim) · Updated September 2026
+  </p>
+</footer>
 
 <script>
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 10), {passive:true});
+
+window.addEventListener(
+  'scroll',
+  () => nav.classList.toggle('scrolled', window.scrollY > 10),
+  { passive: true }
+);
+
 const toggle = document.getElementById('mobileToggle');
 const navLinks = document.getElementById('navLinks');
-function closeMenu() { navLinks.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
+
+function closeMenu() {
+  navLinks.classList.remove('open');
+  toggle.setAttribute('aria-expanded', 'false');
+}
+
 toggle.addEventListener('click', () => {
   const open = navLinks.classList.toggle('open');
   toggle.setAttribute('aria-expanded', String(open));
 });
-navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-document.addEventListener('keydown', e => { if(e.key === 'Escape' && navLinks.classList.contains('open')) { closeMenu(); toggle.focus(); } });
-window.matchMedia('(min-width: 701px)').addEventListener('change', e => { if(e.matches) closeMenu(); });
+
+navLinks
+  .querySelectorAll('a')
+  .forEach(a => a.addEventListener('click', closeMenu));
+
+document.addEventListener('keydown', e => {
+  if (
+    e.key === 'Escape' &&
+    navLinks.classList.contains('open')
+  ) {
+    closeMenu();
+    toggle.focus();
+  }
+});
+
+window
+  .matchMedia('(min-width: 701px)')
+  .addEventListener('change', e => {
+    if (e.matches) closeMenu();
+  });
 </script>
+
 </body>
 </html>
